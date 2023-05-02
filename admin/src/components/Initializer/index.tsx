@@ -4,8 +4,8 @@
  *
  */
 
-import { useEffect, useRef } from 'react';
-import pluginId from '../../pluginId';
+import { useEffect, useRef } from "react";
+import pluginId from "../../pluginId";
 
 type InitializerProps = {
   setPlugin: (id: string) => void;
