@@ -18,6 +18,8 @@ jobs:
           node-version: '18.x'
       - name: Install dependencies
         run: npm install --frozen-lockfile
+      - name: Building package
+        run: npm run build
       - name: Install semantic-release
         run: yarn global add semantic-release-cli semantic-release
       - run: semantic-release --branches release
