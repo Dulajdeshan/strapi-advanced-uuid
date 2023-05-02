@@ -9,8 +9,7 @@
     "kind": "plugin"
   },
   "dependencies": {
-    "uuid": "^9.0.0",
-    "randexp": "^0.5.3"
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
     "npm-install-peers": "^1.2.2",
