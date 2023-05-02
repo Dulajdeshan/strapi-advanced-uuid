@@ -1,7 +1,7 @@
 {
   "extends": "@strapi/typescript-utils/tsconfigs/server",
   "compilerOptions": {
-    "outDir": "build",
+    "outDir": "dist",
     "rootDir": "."
   },
   "include": [
@@ -10,7 +10,7 @@
   ],
   "exclude": [
     "node_modules/",
-    "build/",
+    "dist/",
     "admin/",
     "**/*.test.ts"
   ]
