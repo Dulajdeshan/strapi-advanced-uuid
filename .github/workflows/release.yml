@@ -20,6 +20,8 @@ jobs:
         run: npm ci
       - name: Install peer dependencies
         run: npx npm-install-peers
+      - name: Building package
+        run: npm run build
       - name: Install semantic-release
         run: yarn global add semantic-release-cli semantic-release
       - run: semantic-release --branches release
