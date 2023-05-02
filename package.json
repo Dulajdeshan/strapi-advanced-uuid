@@ -8,7 +8,9 @@
     "description": "UUID field type support to Strapi with customizations",
     "kind": "plugin"
   },
-  "dependencies": {},
+  "dependencies": {
+    "uuid": "^9.0.0"
+  },
   "devDependencies": {
     "npm-install-peers": "^1.2.2",
     "@jest/globals": "^29.5.0",
