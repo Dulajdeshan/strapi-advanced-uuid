@@ -4,6 +4,7 @@
   "description": "UUID field type support to Strapi with customizations",
   "strapi": {
     "name": "strapi-advanced-uuid",
+    "displayName": "Strapi Advanced UUID",
     "description": "UUID field type support to Strapi with customizations",
     "kind": "plugin"
   },
