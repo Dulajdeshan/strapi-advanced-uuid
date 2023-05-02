@@ -9,9 +9,6 @@ The Strapi Advanced UUID Plugin is a custom plugin for Strapi that automatically
 To install the Strapi Advanced UUID Plugin, simply run one of the following command:
 
 ```
-pnpm add strapi-advanced-uuid
-```
-```
 npm install strapi-advanced-uuid
 ```
 ```
