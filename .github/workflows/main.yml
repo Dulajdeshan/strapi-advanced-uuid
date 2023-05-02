@@ -24,5 +24,7 @@ jobs:
         run: npx npm-install-peers
       - name: Building package
         run: npm run build
+      - run: ls
+      - run: ls dist
       - name: Running tests
         run: npm run test
