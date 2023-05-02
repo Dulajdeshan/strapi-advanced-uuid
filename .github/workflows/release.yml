@@ -15,9 +15,9 @@ jobs:
       - name: node
         uses: actions/setup-node@v3
         with:
-          node-version: '16.x'
+          node-version: '18.x'
       - name: Install dependencies
-        run: yarn --prefer-offline
+        run: npm install --frozen-lockfile
       - name: Install semantic-release
         run: yarn global add semantic-release-cli semantic-release
       - run: semantic-release --branches release
