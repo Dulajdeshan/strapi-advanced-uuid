@@ -16,7 +16,6 @@ import {
 } from "@strapi/design-system";
 import { generateUUID, validateUUID } from "../../utils/helpers";
 
-
 export const FieldActionWrapper = styled(FieldAction)`
   svg {
     height: 1rem;
