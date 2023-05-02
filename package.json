@@ -65,12 +65,10 @@
     ]
   },
   "engines": {
-    "node": ">=14.19.1 <=17.x.x",
+    "node": ">=14.19.1 <=18.x.x",
     "pnpm": ">=8.0.0"
   },
-  "packageManager": "pnpm@8.3.1",
   "scripts": {
-    "prepare": "npm-install-peers",
     "develop": "tsc -p tsconfig.server.json -w",
     "build": "tsc -p tsconfig.server.json",
     "test": "jest"

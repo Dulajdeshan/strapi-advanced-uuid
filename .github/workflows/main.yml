@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [17.x]
+        node-version: [18.x]
 
     steps:
       - uses: actions/checkout@v3
@@ -19,7 +19,9 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - name: Install dependencies
-        run: npm install --frozen-lockfile
+        run: npm ci
+      - name: Install peer dependencies
+        run: npx npm-install-peers
       - name: Building package
         run: npm run build
       - name: Running tests

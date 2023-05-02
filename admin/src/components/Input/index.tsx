@@ -42,8 +42,7 @@ const Input = ({
   labelAction,
   name,
   onChange,
-  value: initialValue = "",
-  ...props
+  value: initialValue = ""
 }: {
   attribute: any;
   description: any;
