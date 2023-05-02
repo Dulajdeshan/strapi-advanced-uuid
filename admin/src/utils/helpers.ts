@@ -12,7 +12,6 @@ export const generateUUID = (format: string) => {
   }
 };
 
-
 export const validateUUID = (format: string, initialValue: string) => {
   const newFormat = `^${format}$`;
   const regexFormat = new RegExp(newFormat, "i");
