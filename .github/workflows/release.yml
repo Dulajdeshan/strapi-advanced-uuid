@@ -22,7 +22,7 @@ jobs:
         run: npm run build
       - name: Install semantic-release
         run: yarn global add semantic-release-cli semantic-release
-      - run: semantic-release --branches release
+      - run: cd dist && semantic-release --branches release
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
