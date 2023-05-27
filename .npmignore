@@ -2,3 +2,4 @@
 *.iml
 *ignore
 __tests__
+.github
