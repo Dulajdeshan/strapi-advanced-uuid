@@ -11,7 +11,7 @@ const name = pluginPkg.strapi.name;
 export default {
   register(app: any) {
     app.customFields.register({
-      name: "strapi-advanced-uuid",
+      name: "uuid",
       pluginId,
       type: "string",
       intlLabel: {
