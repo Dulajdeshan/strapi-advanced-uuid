@@ -17,35 +17,24 @@ yarn add strapi-advanced-uuid
 
 ## Usage
 
-Once the plugin is installed, you can add a new custom type to your Strapi content types, no configuration needed. The custom type uses the Strapi UID structure, ensuring that each UUID generated is unique.
+### How to Setup Advanced UUID Field
 
-You can create new records via the Admin panel, API or GraphQL, and the plugin will automatically generate a UUID for each new record created.
+After installation you will find the `Advanced UUID` at the custom fields section of the content-type builder.
 
-## Example
+![strapi advanced uuid](./screenshot/screenshot-1.png)
 
-Here's an example of how to use the Strapi Auto UUID Plugin:
+Now you can define the field attributes. `Advanced UUID` field allows you to define the custom regular expression (`UUID format`) for your field. Default UUID format will be [`UUID V4`](https://www.npmjs.com/package/uuid#uuidv4options-buffer-offset).
 
-1. Install the plugin using `npm install strapi-advanced-uuid`
-2. Create a new Strapi model with the custom type `advancedUUID`, like this:
+![strapi advanced uuid](./screenshot/screenshot-2.png)
 
-```javascript
-module.exports = {
-  attributes: {
-    title: {
-      type: 'string',
-      required: true,
-    },
-    uuid: {
-      type: "customField",
-      customField: "plugin::strapi-advanced-uuid.uuid"
-    },
-  },
-};
-```
+### How to Use Custom Regular Expression
 
-3. When you create a new record in this model via the Strapi API or GraphQL, the plugin will automatically generate a unique UUID for the `uuid` field.
+![strapi advanced uuid](./screenshot/screenshot-3.png)
 
-That's it! With the Strapi Advanced UUID Plugin, you can easily add UUIDs to your Strapi content without having to worry about generating them yourself.
+Now You can create new records via the Admin panel, API or GraphQL, and the plugin will automatically generate a UUID for each new record created.
+
+![strapi advanced uuid](./screenshot/screenshot-4.png)
+
 
 ## License
 This plugin is licensed under the MIT License. See the LICENSE file for more information.
