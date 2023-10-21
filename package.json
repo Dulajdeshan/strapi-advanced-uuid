@@ -2,6 +2,13 @@
   "name": "strapi-advanced-uuid",
   "version": "0.0.0",
   "description": "UUID field type support to Strapi with customizations",
+  "keywords": [
+    "strapi",
+    "strapi-plugin",
+    "custom-fields",
+    "uuid",
+    "regex"
+  ],
   "strapi": {
     "name": "strapi-advanced-uuid",
     "displayName": "Strapi Advanced UUID",
