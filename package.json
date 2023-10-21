@@ -38,7 +38,7 @@
     "react": "^17.0.0 || ^18.0.0",
     "react-dom": "^17.0.0 || ^18.0.0",
     "react-router-dom": "^5.3.4",
-    "styled-components": "^5.3.6 || ^6.1.0",
+    "styled-components": "^5.3.3 || ^6.1.0",
     "@strapi/strapi": "^4.14.5"
   },
   "homepage": "https://github.com/Dulajdeshan/strapi-advanced-uuid",
