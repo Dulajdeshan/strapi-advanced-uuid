@@ -44,12 +44,18 @@ export default ({ strapi }: { strapi: Strapi }) => {
       ) {
         models[event.model.uid].forEach((attribute) => {
           if (!event.params.data[attribute]) {
-            const options = event.model.attributes[attribute]["options"];
-            if (options) {
-              const uuidFormat = options["uuid-format"];
-              event.params.data[attribute] = uuidFormat
-                ? generateUUID(uuidFormat)
-                : v4();
+            if (event.model.attributes) {
+              const options = event.model.attributes[attribute]["options"];
+              if (options) {
+                const uuidFormat = options["uuid-format"];
+                event.params.data[attribute] = uuidFormat
+                  ? generateUUID(uuidFormat)
+                  : v4();
+              } else {
+                event.params.data[attribute] = v4();
+              }
+            } else {
+              event.params.data[attribute] = v4();
             }
           }
         });
