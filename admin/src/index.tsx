@@ -35,6 +35,18 @@ export default {
             },
             name: "options.uuid-format",
             type: "text"
+          },
+          {
+            intlLabel: {
+              id: getTrad("form.field.disableRegenerate"),
+              defaultMessage: "Disable Regenerate"
+            },
+            name: "options.disable-regenerate",
+            type: "checkbox",
+            description: {
+              id: 'form.field.disableRegenerate.description',
+              defaultMessage: 'Disable regeneration in the UI',
+            },
           }
         ],
         advanced: [
