@@ -42,7 +42,7 @@ const Input = ({
   labelAction,
   name,
   onChange,
-  value: initialValue = ""
+  value: initialValue = "",
 }: {
   attribute: any;
   description: any;
@@ -64,6 +64,13 @@ const Input = ({
       return attribute.options["uuid-format"];
     }
     return null;
+  };
+
+  const getRegenerateOption = () => {
+    if (attribute.options && attribute.options["disable-regenerate"]) {
+      return attribute.options["disable-regenerate"];
+    }
+    return false;
   };
 
   const generateNewUUID = () => {
@@ -116,18 +123,20 @@ const Input = ({
             value={initialValue}
             ref={ref}
             endAction={
-              <FieldActionWrapper
-                onClick={() => {
-                  const newUUID = generateNewUUID();
-                  onChange({ target: { value: newUUID, name } });
-                }}
-                label={formatMessage({
-                  id: "uuid.form.field.generate",
-                  defaultMessage: "Generate",
-                })}
-              >
-                <Refresh />
-              </FieldActionWrapper>
+              !getRegenerateOption() && (
+                <FieldActionWrapper
+                  onClick={() => {
+                    const newUUID = generateNewUUID();
+                    onChange({ target: { value: newUUID, name } });
+                  }}
+                  label={formatMessage({
+                    id: "uuid.form.field.generate",
+                    defaultMessage: "Generate",
+                  })}
+                >
+                  <Refresh />
+                </FieldActionWrapper>
+              )
             }
           />
           <FieldHint />
