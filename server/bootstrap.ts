@@ -2,7 +2,7 @@
 
 import type { Strapi } from "@strapi/strapi";
 import { v4 } from "uuid";
-import RandExp from "randexp";
+import * as RandExp from "randexp";
 import { handleYupError } from "@strapi/utils";
 
 // Helper function to generate a UUID based on a format
