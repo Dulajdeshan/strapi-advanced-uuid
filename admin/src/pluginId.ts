@@ -1,5 +1,1 @@
-import pluginPkg from '../../package.json';
-
-const pluginId = pluginPkg.strapi.name
-
-export default pluginId;
+export const PLUGIN_ID = 'strapi-advanced-uuid';

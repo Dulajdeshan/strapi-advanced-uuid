@@ -11,6 +11,7 @@ To install the Strapi Advanced UUID Plugin, simply run one of the following comm
 ```
 npm install strapi-advanced-uuid
 ```
+
 ```
 yarn add strapi-advanced-uuid
 ```
@@ -35,6 +36,6 @@ Now You can create new records via the Admin panel, API or GraphQL, and the plug
 
 ![strapi advanced uuid](./screenshot/screenshot-4.png)
 
-
 ## License
+
 This plugin is licensed under the MIT License. See the LICENSE file for more information.
