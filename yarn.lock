@@ -139,7 +139,7 @@
     "@codemirror/view" "^6.0.0"
     "@lezer/highlight" "^1.0.0"
 
-"@codemirror/view@^6.0.0", "@codemirror/view@^6.17.0", "@codemirror/view@^6.23.0", "@codemirror/view@^6.27.0", "@codemirror/view@>=6.0.0":
+"@codemirror/view@^6.0.0", "@codemirror/view@^6.17.0", "@codemirror/view@^6.23.0", "@codemirror/view@^6.27.0":
   version "6.34.1"
   dependencies:
     "@codemirror/state" "^6.4.0"
@@ -1030,7 +1030,7 @@
     escape-string-regexp "^2.0.0"
     lodash.deburr "^4.1.0"
 
-"@strapi/admin@^5.0.0", "@strapi/admin@^5.0.0 || ^5.0.0-beta || ^5.0.0-alpha || ^5.0.0-rc", "@strapi/admin@5.0.2":
+"@strapi/admin@5.0.2":
   version "5.0.2"
   dependencies:
     "@casl/ability" "6.5.0"
@@ -1120,7 +1120,7 @@
     xdg-app-paths "8.3.0"
     yup "0.32.9"
 
-"@strapi/content-manager@^5.0.0", "@strapi/content-manager@^5.0.0 || ^5.0.0-beta || ^5.0.0-alpha || ^5.0.0-rc", "@strapi/content-manager@5.0.2":
+"@strapi/content-manager@5.0.2":
   version "5.0.2"
   dependencies:
     "@radix-ui/react-toolbar" "1.0.4"
@@ -1256,7 +1256,7 @@
     undici "6.19.2"
     yup "0.32.9"
 
-"@strapi/data-transfer@^5.0.0 ||  ^5.0.0-beta || ^5.0.0-alpha || ^5.0.0-rc", "@strapi/data-transfer@5.0.2":
+"@strapi/data-transfer@5.0.2":
   version "5.0.2"
   dependencies:
     "@strapi/logger" "5.0.2"
@@ -1355,7 +1355,7 @@
     react-redux "8.1.3"
     yup "0.32.9"
 
-"@strapi/icons@^2.0.0 || ^2.0.0-beta || ^2.0.0-alpha", "@strapi/icons@^2.0.0-rc.11", "@strapi/icons@2.0.0-rc.11":
+"@strapi/icons@^2.0.0-rc.11", "@strapi/icons@2.0.0-rc.11":
   version "2.0.0-rc.11"
 
 "@strapi/logger@5.0.2":
@@ -1656,7 +1656,7 @@
 "@swc/counter@^0.1.3":
   version "0.1.3"
 
-"@swc/helpers@*", "@swc/helpers@^0.5.0":
+"@swc/helpers@^0.5.0":
   version "0.5.13"
   dependencies:
     tslib "^2.4.0"
@@ -1683,7 +1683,7 @@
     lz-string "^1.5.0"
     pretty-format "^27.0.2"
 
-"@testing-library/dom@>=7.21.4", "@testing-library/dom@10.1.0":
+"@testing-library/dom@10.1.0":
   version "10.1.0"
   dependencies:
     "@babel/code-frame" "^7.10.4"
@@ -1814,7 +1814,7 @@
     "@types/minimatch" "*"
     "@types/node" "*"
 
-"@types/hoist-non-react-statics@^3.3.1", "@types/hoist-non-react-statics@>= 3.3.1":
+"@types/hoist-non-react-statics@^3.3.1":
   version "3.3.5"
   dependencies:
     "@types/react" "*"
@@ -1901,7 +1901,7 @@
 "@types/ms@*":
   version "0.7.34"
 
-"@types/node@*", "@types/node@^18.0.0 || >=20.0.0", "@types/node@>= 12":
+"@types/node@*":
   version "22.7.4"
   dependencies:
     undici-types "~6.19.2"
@@ -1937,7 +1937,7 @@
 "@types/range-parser@*":
   version "1.2.7"
 
-"@types/react-dom@*", "@types/react-dom@^16.8 || ^17.0 || ^18.0", "@types/react-dom@^18.0.0", "@types/react-dom@^18.3.0":
+"@types/react-dom@^18.0.0", "@types/react-dom@^18.3.0":
   version "18.3.0"
   dependencies:
     "@types/react" "*"
@@ -1947,7 +1947,7 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react@*", "@types/react@^16.8 || ^17.0 || ^18.0", "@types/react@^16.8.0 || ^17.0.0 || ^18.0.0", "@types/react@^16.9.0 || ^17.0.0 || ^18.0.0", "@types/react@^18.0.0", "@types/react@^18.3.11", "@types/react@>= 16", "@types/react@16 || 17 || 18":
+"@types/react@*", "@types/react@^18.3.11", "@types/react@16 || 17 || 18":
   version "18.3.11"
   dependencies:
     "@types/prop-types" "*"
@@ -2161,7 +2161,7 @@ acorn-walk@^8.0.0:
   dependencies:
     acorn "^8.11.0"
 
-acorn@^8, acorn@^8.0.4, acorn@^8.11.0, acorn@^8.7.1, acorn@^8.8.2:
+acorn@^8.0.4, acorn@^8.11.0, acorn@^8.7.1, acorn@^8.8.2:
   version "8.12.1"
 
 addressparser@1.0.1:
@@ -2194,7 +2194,7 @@ ajv-keywords@^5.1.0:
   dependencies:
     fast-deep-equal "^3.1.3"
 
-ajv@^6.12.5, ajv@^6.9.1:
+ajv@^6.12.5:
   version "6.12.6"
   dependencies:
     fast-deep-equal "^3.1.1"
@@ -2202,7 +2202,7 @@ ajv@^6.12.5, ajv@^6.9.1:
     json-schema-traverse "^0.4.1"
     uri-js "^4.2.2"
 
-ajv@^8.0.0, ajv@^8.5.0, ajv@~8.13.0:
+ajv@^8.0.0, ajv@~8.13.0:
   version "8.13.0"
   dependencies:
     fast-deep-equal "^3.1.3"
@@ -2210,7 +2210,7 @@ ajv@^8.0.0, ajv@^8.5.0, ajv@~8.13.0:
     require-from-string "^2.0.2"
     uri-js "^4.4.1"
 
-ajv@^8.8.2, ajv@^8.9.0:
+ajv@^8.9.0:
   version "8.17.1"
   dependencies:
     fast-deep-equal "^3.1.3"
@@ -2486,7 +2486,7 @@ browserslist-to-esbuild@1.2.0:
   dependencies:
     browserslist "^4.17.3"
 
-browserslist@^4.17.3, browserslist@^4.21.10, browserslist@^4.23.0, "browserslist@>= 4.21.0":
+browserslist@^4.17.3, browserslist@^4.21.10, browserslist@^4.23.0:
   version "4.24.0"
   dependencies:
     caniuse-lite "^1.0.30001663"
@@ -2918,18 +2918,8 @@ convert-source-map@^1.5.0:
 cookie@^0.4.2:
   version "0.4.2"
 
-cookies@~0.8.0:
-  version "0.8.0"
-  resolved "https://registry.npmjs.org/cookies/-/cookies-0.8.0.tgz"
-  integrity sha512-8aPsApQfebXnuI+537McwYsDtjVxGm8gTIzQI3FDW6t5t/DAhERxtnbEPN/8RX+uZthoz4eCOgloXaE5cYyNow==
-  dependencies:
-    depd "~2.0.0"
-    keygrip "~1.1.0"
-
 cookies@~0.9.0:
   version "0.9.1"
-  resolved "https://registry.npmjs.org/cookies/-/cookies-0.9.1.tgz"
-  integrity sha512-TG2hpqe4ELx54QER/S3HQ9SRVnQnGBtKUz5bLQWtYAQ+o6GpgMs6sYUvaiJjVxb+UXwhRhAEP3m7LbsIZ77Hmw==
   dependencies:
     depd "~2.0.0"
     keygrip "~1.1.0"
@@ -3037,7 +3027,7 @@ csstype@^3.0.2, csstype@3.1.3:
 date-fns-tz@2.0.1:
   version "2.0.1"
 
-date-fns@^2.30.0, date-fns@2.30.0, date-fns@2.x:
+date-fns@^2.30.0, date-fns@2.30.0:
   version "2.30.0"
   dependencies:
     "@babel/runtime" "^7.21.0"
@@ -3159,8 +3149,6 @@ depd@^2.0.0, depd@~2.0.0, depd@2.0.0:
 
 depd@~1.1.2:
   version "1.1.2"
-  resolved "https://registry.npmjs.org/depd/-/depd-1.1.2.tgz"
-  integrity sha512-7emPTl6Dpo6JRXOXjLRxck+FlLRX5847cLKEn00PLAgc3g2hTZZgr+e4c2v6QpSmLeFP3n5yUo7ft6avBK/5jQ==
 
 dequal@^2.0.3:
   version "2.0.3"
@@ -3329,11 +3317,6 @@ enabled@2.0.x:
 encodeurl@^1.0.2:
   version "1.0.2"
 
-encoding@^0.1.0:
-  version "0.1.13"
-  dependencies:
-    iconv-lite "^0.6.2"
-
 end-of-stream@^1.1.0, end-of-stream@^1.4.1:
   version "1.4.4"
   dependencies:
@@ -3419,7 +3402,7 @@ esbuild@^0.16.17:
     "@esbuild/win32-ia32" "0.16.17"
     "@esbuild/win32-x64" "0.16.17"
 
-esbuild@^0.20.1, "esbuild@>=0.12 <1", esbuild@0.20.2:
+esbuild@^0.20.1, esbuild@0.20.2:
   version "0.20.2"
   optionalDependencies:
     "@esbuild/aix-ppc64" "0.20.2"
@@ -4199,8 +4182,6 @@ http-cache-semantics@^4.0.0:
 
 http-errors@^1.6.3:
   version "1.8.1"
-  resolved "https://registry.npmjs.org/http-errors/-/http-errors-1.8.1.tgz"
-  integrity sha512-Kpk9Sm7NmI+RHhnj6OIWDI1d6fIoFAtFt9RLaTMRlg/8w49juAStsrBgp0Dp4OdxdVbRIeKhtCUvoi/RuAhO4g==
   dependencies:
     depd "~1.1.2"
     inherits "2.0.4"
@@ -4268,11 +4249,6 @@ iconv-lite@^0.4.24, iconv-lite@0.4.24:
   version "0.4.24"
   dependencies:
     safer-buffer ">= 2.1.2 < 3"
-
-iconv-lite@^0.6.2:
-  version "0.6.3"
-  dependencies:
-    safer-buffer ">= 2.1.2 < 3.0.0"
 
 iconv-lite@0.4.13:
   version "0.4.13"
@@ -4752,8 +4728,6 @@ jws@^3.2.2:
 
 keygrip@~1.1.0:
   version "1.1.0"
-  resolved "https://registry.npmjs.org/keygrip/-/keygrip-1.1.0.tgz"
-  integrity sha512-iYSchDJ+liQ8iwbSI2QqsQOvqv58eJCEanyJPJi+Khyu8smkcKSFUCbPwzFcL7YVtZ6eONjqRX/38caJ7QjRAQ==
   dependencies:
     tsscmp "1.0.6"
 
@@ -4874,39 +4848,8 @@ koa-static@5.0.0:
     debug "^3.1.0"
     koa-send "^5.0.0"
 
-koa@2.13.4:
-  version "2.13.4"
-  resolved "https://registry.npmjs.org/koa/-/koa-2.13.4.tgz"
-  integrity sha512-43zkIKubNbnrULWlHdN5h1g3SEKXOEzoAlRsHOTFpnlDu8JlAOZSMJBLULusuXRequboiwJcj5vtYXKB3k7+2g==
-  dependencies:
-    accepts "^1.3.5"
-    cache-content-type "^1.0.0"
-    content-disposition "~0.5.2"
-    content-type "^1.0.4"
-    cookies "~0.8.0"
-    debug "^4.3.2"
-    delegates "^1.0.0"
-    depd "^2.0.0"
-    destroy "^1.0.4"
-    encodeurl "^1.0.2"
-    escape-html "^1.0.3"
-    fresh "~0.5.2"
-    http-assert "^1.3.0"
-    http-errors "^1.6.3"
-    is-generator-function "^1.0.7"
-    koa-compose "^4.1.0"
-    koa-convert "^2.0.0"
-    on-finished "^2.3.0"
-    only "~0.0.2"
-    parseurl "^1.3.2"
-    statuses "^1.5.0"
-    type-is "^1.6.16"
-    vary "^1.1.2"
-
 koa@2.15.2:
   version "2.15.2"
-  resolved "https://registry.npmjs.org/koa/-/koa-2.15.2.tgz"
-  integrity sha512-MXTeZH3M6AJ8ukW2QZ8wqO3Dcdfh2WRRmjCBkEP+NhKNCiqlO5RDqHmSnsyNrbRJrdjyvIGSJho4vQiWgQJSVA==
   dependencies:
     accepts "^1.3.5"
     cache-content-type "^1.0.0"
@@ -5919,7 +5862,7 @@ postcss-selector-parser@^6.0.2, postcss-selector-parser@^6.0.4:
 postcss-value-parser@^4.0.2, postcss-value-parser@^4.1.0, postcss-value-parser@^4.2.0:
   version "4.2.0"
 
-postcss@^8.1.0, postcss@^8.3.11, postcss@^8.4.33, postcss@^8.4.38:
+postcss@^8.3.11, postcss@^8.4.33, postcss@^8.4.38:
   version "8.4.47"
   dependencies:
     nanoid "^3.3.7"
@@ -5966,7 +5909,7 @@ prettier-plugin-packagejson@2.4.14:
 prettier@^3.3.3, prettier@3.3.3:
   version "3.3.3"
 
-"prettier@>= 1.16.0", prettier@2.8.8:
+prettier@2.8.8:
   version "2.8.8"
 
 pretty-error@^4.0.0:
@@ -6098,7 +6041,7 @@ react-dnd@16.0.1:
     fast-deep-equal "^3.1.3"
     hoist-non-react-statics "^3.3.2"
 
-react-dom@*, "react-dom@^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0", "react-dom@^16.8 || ^17.0 || ^18.0", "react-dom@^16.8.0 || ^17.0.0 || ^18.0.0", "react-dom@^17.0.0 || ^18.0.0", react-dom@^18.0.0, react-dom@^18.3.1, "react-dom@>= 16.8.0", react-dom@>=16.6.0, react-dom@>=16.8, react-dom@>=16.8.0:
+react-dom@^18.3.1:
   version "18.3.1"
   dependencies:
     loose-envify "^1.1.0"
@@ -6165,7 +6108,7 @@ react-query@3.39.3:
     broadcast-channel "^3.4.1"
     match-sorter "^6.0.2"
 
-"react-redux@^7.2.1 || ^8.0.2", react-redux@8.1.3:
+react-redux@8.1.3:
   version "8.1.3"
   dependencies:
     "@babel/runtime" "^7.12.1"
@@ -6175,7 +6118,7 @@ react-query@3.39.3:
     react-is "^18.0.0"
     use-sync-external-store "^1.0.0"
 
-"react-refresh@>=0.10.0 <1.0.0", react-refresh@0.14.0:
+react-refresh@0.14.0:
   version "0.14.0"
 
 react-remove-scroll-bar@^2.3.3, react-remove-scroll-bar@^2.3.6:
@@ -6202,7 +6145,7 @@ react-remove-scroll@2.5.5:
     use-callback-ref "^1.3.0"
     use-sidecar "^1.1.2"
 
-react-router-dom@^6.0.0, react-router-dom@^6.26.2:
+react-router-dom@^6.26.2:
   version "6.26.2"
   dependencies:
     "@remix-run/router" "1.19.2"
@@ -6250,7 +6193,7 @@ react-window@1.8.10:
     "@babel/runtime" "^7.0.0"
     memoize-one ">=3.1.1 <6"
 
-"react@^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0", "react@^16.3.0 || ^17.0.0 || ^18.0.0", "react@^16.6.0 || 17 || 18", "react@^16.8 || ^17.0 || ^18.0", "react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^16.9.0 || ^17.0.0 || ^18", "react@^17.0.0 || ^18.0.0", react@^18.0.0, react@^18.3.1, "react@>= 16.14", "react@>= 16.8.0", react@>=16.3.0, react@>=16.6.0, react@>=16.8, react@>=16.8.0:
+react@^18.3.1:
   version "18.3.1"
   dependencies:
     loose-envify "^1.1.0"
@@ -6323,7 +6266,7 @@ rechoir@^0.8.0:
 redux-thunk@^2.4.2:
   version "2.4.2"
 
-redux@^4, "redux@^4 || ^5.0.0-beta.0", redux@^4.2.0, redux@^4.2.1:
+redux@^4.2.0, redux@^4.2.1:
   version "4.2.1"
   dependencies:
     "@babel/runtime" "^7.9.2"
@@ -6527,7 +6470,7 @@ safe-regex@^1.1.0:
 safe-stable-stringify@^2.3.1:
   version "2.5.0"
 
-"safer-buffer@>= 2.1.2 < 3", "safer-buffer@>= 2.1.2 < 3.0.0":
+"safer-buffer@>= 2.1.2 < 3":
   version "2.1.2"
 
 sanitize-html@2.13.0:
@@ -6545,7 +6488,7 @@ scheduler@^0.23.2:
   dependencies:
     loose-envify "^1.1.0"
 
-scheduler@>=0.19.0, scheduler@0.23.0:
+scheduler@0.23.0:
   version "0.23.0"
   dependencies:
     loose-envify "^1.1.0"
@@ -6756,7 +6699,7 @@ slate-react@0.98.3:
     scroll-into-view-if-needed "^2.2.20"
     tiny-invariant "1.0.6"
 
-slate@>=0.65.3, slate@0.94.1:
+slate@0.94.1:
   version "0.94.1"
   dependencies:
     immer "^9.0.6"
@@ -6895,8 +6838,6 @@ static-extend@^0.1.1:
 
 statuses@^1.5.0, "statuses@>= 1.4.0 < 2", "statuses@>= 1.5.0 < 2":
   version "1.5.0"
-  resolved "https://registry.npmjs.org/statuses/-/statuses-1.5.0.tgz"
-  integrity sha512-OpZ3zP+jT1PI7I8nemJX4AKmAX070ZkYPVWV/AaKTJl+tXCTGyVdC1a4SL8RUQYEwk/f34ZX8UTykN68FwrqAA==
 
 statuses@2.0.1:
   version "2.0.1"
@@ -7009,7 +6950,7 @@ style-loader@3.3.4:
 style-mod@^4.0.0, style-mod@^4.1.0:
   version "4.1.2"
 
-styled-components@^6.0.0, styled-components@^6.1.13:
+styled-components@^6.1.13:
   version "6.1.13"
   dependencies:
     "@emotion/is-prop-valid" "1.2.2"
@@ -7129,7 +7070,7 @@ terser-webpack-plugin@^5.3.10:
     serialize-javascript "^6.0.1"
     terser "^5.26.0"
 
-terser@^5.10.0, terser@^5.26.0, terser@^5.4.0:
+terser@^5.10.0, terser@^5.26.0:
   version "5.34.1"
   dependencies:
     "@jridgewell/source-map" "^0.3.3"
@@ -7243,8 +7184,6 @@ tslib@2.6.2:
 
 tsscmp@1.0.6:
   version "1.0.6"
-  resolved "https://registry.npmjs.org/tsscmp/-/tsscmp-1.0.6.tgz"
-  integrity sha512-LxhtAkPDTkVCMQjt2h6eBVY28KCjikZqZfMcC15YBeNjkgUpdCfBu5HoiOTDu86v6smE8yOjyEktJ8hlbANHQA==
 
 tunnel-agent@^0.6.0:
   version "0.6.0"
@@ -7254,7 +7193,7 @@ tunnel-agent@^0.6.0:
 type-fest@^0.13.1:
   version "0.13.1"
 
-type-fest@^0.20.2, "type-fest@>=0.17.0 <5.0.0":
+type-fest@^0.20.2:
   version "0.20.2"
 
 type-fest@^0.21.3:
@@ -7286,12 +7225,12 @@ typedarray-to-buffer@^3.1.5:
 typedoc-github-wiki-theme@1.1.0:
   version "1.1.0"
 
-typedoc-plugin-markdown@>=3.15.0, typedoc-plugin-markdown@3.17.1:
+typedoc-plugin-markdown@3.17.1:
   version "3.17.1"
   dependencies:
     handlebars "^4.7.7"
 
-typedoc@>=0.24.0, typedoc@0.25.10:
+typedoc@0.25.10:
   version "0.25.10"
   dependencies:
     lunr "^2.3.9"
@@ -7299,10 +7238,10 @@ typedoc@>=0.24.0, typedoc@0.25.10:
     minimatch "^9.0.3"
     shiki "^0.14.7"
 
-"typescript@^4.7 || 5", typescript@^5.6.2, "typescript@4.6.x || 4.7.x || 4.8.x || 4.9.x || 5.0.x || 5.1.x || 5.2.x || 5.3.x":
+typescript@^5.6.2:
   version "5.6.2"
 
-"typescript@>= 4.4.x <= 5.2.x", typescript@>3.6.0, typescript@5.3.2:
+typescript@5.3.2:
   version "5.3.2"
 
 typescript@5.4.4:
@@ -7461,8 +7400,8 @@ validate-npm-package-license@^3.0.1:
 vary@^1.1.2:
   version "1.1.2"
 
-"vite@^4 || ^5", vite@5.2.8:
-  version "5.2.8"
+vite@5.2.14:
+  version "5.2.14"
   dependencies:
     esbuild "^0.20.1"
     postcss "^8.4.38"
@@ -7470,8 +7409,8 @@ vary@^1.1.2:
   optionalDependencies:
     fsevents "~2.3.3"
 
-vite@5.2.14:
-  version "5.2.14"
+vite@5.2.8:
+  version "5.2.8"
   dependencies:
     esbuild "^0.20.1"
     postcss "^8.4.38"
@@ -7534,7 +7473,7 @@ webpack-dev-middleware@6.1.2:
     range-parser "^1.2.1"
     schema-utils "^4.0.0"
 
-webpack-hot-middleware@2.26.1, webpack-hot-middleware@2.x:
+webpack-hot-middleware@2.26.1:
   version "2.26.1"
   dependencies:
     ansi-html-community "0.0.8"
@@ -7550,7 +7489,7 @@ webpack-sources@^1.4.3:
 webpack-sources@^3.2.3:
   version "3.2.3"
 
-"webpack@^4.40.0 || ^5.0.0", webpack@^5.0.0, webpack@^5.1.0, webpack@^5.11.0, webpack@^5.20.0, webpack@^5.90.3, "webpack@>=4.43.0 <6.0.0":
+webpack@^5.90.3:
   version "5.95.0"
   dependencies:
     "@types/estree" "^1.0.5"
