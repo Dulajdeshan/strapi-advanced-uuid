@@ -82,8 +82,6 @@ export default ({ strapi }: { strapi: Strapi }) => {
   const models = Object.keys(contentTypes).reduce((acc, key) => {
     const contentType = contentTypes[key];
 
-    if (!key.startsWith("api")) return acc;
-
     // Filter out content types that have the custom field "plugin::strapi-advanced-uuid.uuid"
     const attributes = Object.keys(contentType.attributes).filter((attrKey) => {
       const attribute = contentType.attributes[attrKey];
