@@ -2,17 +2,30 @@
   "name": "strapi-advanced-uuid",
   "version": "0.0.0",
   "description": "UUID field type support to Strapi with customizations",
-  "keywords": [],
-  "homepage": "https://github.com/Dulajdeshan/strapi-advanced-uuid#readme",
+  "keywords": [
+    "strapi",
+    "strapi-plugin",
+    "custom-fields",
+    "uuid",
+    "regex"
+  ],
+  "homepage": "https://github.com/Dulajdeshan/strapi-advanced-uuid",
+  "readme": "https://github.com/Dulajdeshan/strapi-advanced-uuid#readme",
   "bugs": {
-    "url": "https://github.com/Dulajdeshan/strapi-advanced-uuid/issues"
+    "url": "https://github.com/Dulajdeshan/strapi-advanced-uuid/issues",
+    "email": "dulajdeshans@gmail.com"
   },
   "repository": {
+    "url": "https://github.com/Dulajdeshan/strapi-advanced-uuid",
     "type": "git",
-    "url": "git+ssh://git@github.com/Dulajdeshan/strapi-advanced-uuid.git"
+    "directory": "."
   },
   "license": "MIT",
-  "author": "Dulaj Ariyaratne <dulajdeshans@gmail.com>",
+  "author": {
+    "name": "Dulaj Ariyaratne",
+    "email": "dulajdeshans@gmail.com",
+    "url": "https://github.com/dulajdeshan"
+  },
   "type": "commonjs",
   "exports": {
     "./package.json": "./package.json",
@@ -75,5 +88,13 @@
     "name": "strapi-advanced-uuid",
     "displayName": "Strapi Advanced UUID",
     "description": "UUID field type support to Strapi with customizations"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "release": {
+    "branches": [
+      "latest"
+    ]
   }
 }
