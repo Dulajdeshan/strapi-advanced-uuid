@@ -1,5 +1,5 @@
-import RandExp from "randexp";
-import { v4, validate } from "uuid";
+import { randString } from "regex-randstr";
+import { v4 } from "uuid";
 import pluginId from "../pluginId";
 
 export const getTrad = (id: string) => `${pluginId}.${id}`;
@@ -10,7 +10,7 @@ export const generateUUID = (format: string) => {
       return v4();
     }
     const regexFormat = new RegExp(format);
-    return new RandExp(regexFormat).gen();
+    return randString(regexFormat);
   } catch (error) {
     return null;
   }
