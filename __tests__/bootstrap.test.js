@@ -73,8 +73,6 @@ describe('Strapi Lifecycle Methods for Different Models', () => {
     // Invoke the lifecycle hook
     lifecycleHook(event);
 
-    console.log(event.params)
-
     // Assert that UUID is generated and matches the expected format
     expect(event.params.data.uuidField).toMatch(/^[A-Za-z0-9]{5}$/);
   });

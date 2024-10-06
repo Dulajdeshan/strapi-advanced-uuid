@@ -16,7 +16,7 @@
     "kind": "plugin"
   },
   "dependencies": {
-    "randexp": "^0.5.3",
+    "regex-randstr": "^0.0.3",
     "uuid": "^9.0.1",
     "yup": "^1.4.0"
   },

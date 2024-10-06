@@ -2,7 +2,7 @@
 
 import type { Strapi } from "@strapi/strapi";
 import { v4 } from "uuid";
-import * as RandExp from "randexp";
+import { randString } from "regex-randstr";
 import { handleYupError } from "@strapi/utils";
 
 // Helper function to generate a UUID based on a format
@@ -12,7 +12,7 @@ export const generateUUID = (format?: string) => {
       return v4();
     }
     const regexFormat = new RegExp(format);
-    return new RandExp(regexFormat).gen();
+    return randString(regexFormat);
   } catch (error) {
     return null;
   }
