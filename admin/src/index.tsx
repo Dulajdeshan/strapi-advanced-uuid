@@ -1,10 +1,12 @@
-import { prefixPluginTranslations } from '@strapi/helper-plugin';
+import { prefixPluginTranslations } from "@strapi/helper-plugin";
+import { attributeOptions } from "@strapi/design-system";
+import * as yup from "yup";
 
-import pluginPkg from '../../package.json';
-import pluginId from './pluginId';
-import Initializer from './components/Initializer';
-import InputIcon from './components/InputIcon';
-import {getTrad} from './utils/helpers';
+import pluginPkg from "../../package.json";
+import pluginId from "./pluginId";
+import Initializer from "./components/Initializer";
+import InputIcon from "./components/InputIcon";
+import { getTrad } from "./utils/helpers";
 
 const name = pluginPkg.strapi.name;
 
@@ -24,54 +26,91 @@ export default {
       },
       icon: InputIcon,
       components: {
-        Input: async () => import(/* webpackChunkName: "input-uuid-component" */ "./components/Input"),
+        Input: async () =>
+          import(
+            /* webpackChunkName: "input-uuid-component" */ "./components/Input"
+          ),
       },
       options: {
         base: [
           {
             intlLabel: {
               id: getTrad("form.field.uuidFormat"),
-              defaultMessage: "UUID Format"
+              defaultMessage: "UUID Format",
             },
             name: "options.uuid-format",
-            type: "text"
+            type: "text",
           },
           {
-            intlLabel: {
-              id: getTrad("form.field.disableRegenerate"),
-              defaultMessage: "Disable Regenerate"
-            },
-            name: "options.disable-regenerate",
-            type: "checkbox",
-            description: {
-              id: 'form.field.disableRegenerate.description',
-              defaultMessage: 'Disable regeneration in the UI',
-            },
-          }
-        ],
-        advanced: [
-          {
             sectionTitle: {
-              id: 'global.settings',
-              defaultMessage: 'Settings',
+              id: getTrad("form.field.options"),
+              defaultMessage: "Options",
             },
             items: [
               {
-                name: 'private',
-                type: 'checkbox',
                 intlLabel: {
-                  id: 'form.attribute.item.privateField',
-                  defaultMessage: 'Private field',
+                  id: getTrad("form.field.disableAutoFill"),
+                  defaultMessage: "Disable Auto Fill",
                 },
+                name: "options.disable-auto-fill",
+                type: "checkbox",
                 description: {
-                  id: 'form.attribute.item.privateField.description',
-                  defaultMessage: 'This field will not show up in the API response',
+                  id: "form.field.disableAutoFill.description",
+                  defaultMessage:
+                    "Disable initial auto fill of the UUID. UUID field will be editable when this option is enabled.",
+                },
+              },
+              {
+                intlLabel: {
+                  id: getTrad("form.field.disableRegenerate"),
+                  defaultMessage: "Disable Regenerate",
+                },
+                name: "options.disable-regenerate",
+                type: "checkbox",
+                description: {
+                  id: "form.field.disableRegenerate.description",
+                  defaultMessage: "Disable regeneration in the UI",
                 },
               },
             ],
           },
         ],
-        validator: () => {},
+        advanced: [
+          {
+            sectionTitle: {
+              id: "global.settings",
+              defaultMessage: "Settings",
+            },
+            items: [
+              {
+                name: "required",
+                type: "checkbox",
+                intlLabel: {
+                  id: getTrad("form.attribute.item.requiredField"),
+                  defaultMessage: "Required field",
+                },
+                description: {
+                  id: getTrad("form.attribute.item.requiredField.description"),
+                  defaultMessage:
+                    "You won't be able to create an entry if this field is empty",
+                },
+              },
+              {
+                name: "private",
+                type: "checkbox",
+                intlLabel: {
+                  id: "form.attribute.item.privateField",
+                  defaultMessage: "Private field",
+                },
+                description: {
+                  id: "form.attribute.item.privateField.description",
+                  defaultMessage:
+                    "This field will not show up in the API response",
+                },
+              },
+            ],
+          },
+        ],
       },
     });
 
