@@ -27,7 +27,6 @@ export const validateUUID = (format: string, initialValue: string) => {
   }
   return true;
 };
-
 function handleCRUDValidation(event) {
   const errorMessages: any = {
     inner: [],
@@ -52,14 +51,19 @@ function handleCRUDValidation(event) {
       const disableAutoFill = options ? options["disable-auto-fill"] : false;
 
       // If there is no initial value and disableAutoFill is not enabled, generate a new UUID
-      if (!event.params.data[attribute] && !disableAutoFill) {
+      // Generate a new UUID if the action is beforeCreate and there is no initial value
+      if (
+        event.action === "beforeCreate" &&
+        !initialValue &&
+        !disableAutoFill
+      ) {
         event.params.data[attribute] = generateUUID(uuidFormat);
       }
 
       // Validation happens on following conditions:
       // - If disableAutoFill is not enabled
       // - If there is an initial value
-      if (!disableAutoFill || initialValue) {
+      if (initialValue) {
         if (!validateUUID(uuidFormat, event.params.data[attribute])) {
           errorMessages.inner.push({
             name: "ValidationError", // Always set to ValidationError
