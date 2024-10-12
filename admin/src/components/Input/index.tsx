@@ -55,6 +55,7 @@ const Input = forwardRef<HTMLInputElement, any>(
       name,
       onChange,
       required,
+      placeholder,
       value: initialValue = "",
       ...props
     },
@@ -109,11 +110,13 @@ const Input = forwardRef<HTMLInputElement, any>(
               <FieldLabel>{formatMessage(intlLabel)}</FieldLabel>
             </Flex>
             <FieldInput
+              {...props}
               ref={ref}
               onChange={handleChange}
               disabled={disabled || !disableAutoFill}
               value={initialValue}
               required={required}
+              placeholder={placeholder ? formatMessage(placeholder) : ""}
               endAction={
                 !disableRegenerate && (
                   <FieldActionWrapper
@@ -130,7 +133,6 @@ const Input = forwardRef<HTMLInputElement, any>(
                   </FieldActionWrapper>
                 )
               }
-              {...props}
             />
             <FieldHint />
             <FieldError />

@@ -66,6 +66,7 @@ describe('Strapi Lifecycle Methods for Different Models', () => {
 
     // Mock the event for creating an article
     const event = {
+      action: "beforeCreate",
       model: strapiMock.contentTypes['api::article.article'],
       params: { data: { title: 'New Article' } }, // uuidField not provided
     };
@@ -83,6 +84,7 @@ describe('Strapi Lifecycle Methods for Different Models', () => {
 
     // Mock the event for creating a product with an invalid SKU
     const event = {
+      action: "beforeCreate",
       model: strapiMock.contentTypes['api::product.product'],
       params: { data: { sku: 'invalidsku' } }, // Doesn't match format ^[0-9a-zA-Z-]{8}$
     };
@@ -122,6 +124,7 @@ describe('Strapi Lifecycle Methods for Different Models', () => {
 
     // Mock the event for creating a user
     const event = {
+      action: "beforeCreate",
       model: userModel,
       params: { data: { username: 'testuser' } }, // userId not provided
     };
@@ -131,5 +134,99 @@ describe('Strapi Lifecycle Methods for Different Models', () => {
 
     // Assert that userId is not generated
     expect(event.params.data.userId).toBeUndefined();
+  });
+
+  test('beforeUpdate validates UUID format for article', () => {
+    // Extract the beforeUpdate hook
+    const lifecycleHook = strapiMock.db.lifecycles.subscribe.mock.calls[0][0].beforeUpdate;
+
+    // Mock the event for updating an article with an invalid UUID
+    const event = {
+      action: "beforeUpdate",
+      model: strapiMock.contentTypes['api::article.article'],
+      params: { data: { uuidField: 'invaliduuid' } }, // Doesn't match format ^[A-Za-z0-9]{5}$
+    };
+
+    // Invoke the lifecycle hook
+    lifecycleHook(event);
+
+    // Assert that handleYupError is called due to invalid UUID format
+    expect(handleYupError).toHaveBeenCalledWith(
+      expect.objectContaining({ inner: expect.any(Array) }),
+      'You have some issues'
+    );
+  });
+
+  test('beforeUpdate does not change UUID if already provided for product', () => {
+    // Extract the beforeUpdate hook
+    const lifecycleHook = strapiMock.db.lifecycles.subscribe.mock.calls[0][0].beforeUpdate;
+
+    // Mock the event for updating a product with a valid SKU
+    const event = {
+      action: "beforeUpdate",
+      model: strapiMock.contentTypes['api::product.product'],
+      params: { data: { sku: '12345678' } }, // Valid SKU
+    };
+
+    // Invoke the lifecycle hook
+    lifecycleHook(event);
+
+    // Assert that SKU remains unchanged
+    expect(event.params.data.sku).toBe('12345678');
+  });
+
+  test('beforeUpdate does not auto-generate UUID if disableAutoFill is true', () => {
+    // Mock model with disableAutoFill set to true
+    const userModel = {
+      attributes: {
+        userId: {
+          customField: 'plugin::strapi-advanced-uuid.uuid',
+          options: { 'uuid-format': '^[0-9]{6}$', 'disable-auto-fill': true },
+        },
+        username: {
+          type: 'string',
+        },
+      },
+    };
+
+    // Update strapiMock to add the userModel
+    strapiMock.contentTypes['api::user.user'] = userModel;
+
+    // Call the bootstrap method to update lifecycle hooks
+    bootstrap({ strapi: strapiMock });
+
+    // Extract the beforeUpdate hook
+    const lifecycleHook = strapiMock.db.lifecycles.subscribe.mock.calls[1][0].beforeUpdate;
+
+    // Mock the event for updating a user
+    const event = {
+      action: "beforeUpdate",
+      model: userModel,
+      params: { data: { username: 'updateduser' } }, // userId not provided
+    };
+
+    // Invoke the lifecycle hook
+    lifecycleHook(event);
+
+    // Assert that userId is not generated
+    expect(event.params.data.userId).toBeUndefined();
+  });
+
+  test('beforeUpdate does not generate UUID if uuidField is not updated for article', () => {
+    // Extract the beforeUpdate hook
+    const lifecycleHook = strapiMock.db.lifecycles.subscribe.mock.calls[0][0].beforeUpdate;
+
+    // Mock the event for updating an article without changing the uuidField
+    const event = {
+      action: "beforeUpdate",
+      model: strapiMock.contentTypes['api::article.article'],
+      params: { data: { title: 'Updated Article Title' } }, // uuidField not provided
+    };
+
+    // Invoke the lifecycle hook
+    lifecycleHook(event);
+
+    // Assert that uuidField is not generated or changed
+    expect(event.params.data.uuidField).toBeUndefined();
   });
 });
