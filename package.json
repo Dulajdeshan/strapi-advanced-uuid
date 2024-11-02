@@ -9,61 +9,94 @@
     "uuid",
     "regex"
   ],
-  "strapi": {
-    "name": "strapi-advanced-uuid",
-    "displayName": "Strapi Advanced UUID",
-    "description": "UUID field type support to Strapi with customizations",
-    "kind": "plugin"
-  },
-  "dependencies": {
-    "regex-randstr": "^0.0.3",
-    "uuid": "^9.0.1",
-    "yup": "^1.4.0"
-  },
-  "devDependencies": {
-    "@jest/globals": "^29.7.0",
-    "@strapi/design-system": "^1.12.2",
-    "@strapi/helper-plugin": "^4.14.5",
-    "@strapi/icons": "^1.12.2",
-    "@strapi/typescript-utils": "^4.14.5",
-    "@types/jest": "^29.5.6",
-    "@types/react": "^18.2.31",
-    "@types/react-dom": "^18.2.14",
-    "@types/styled-components": "^5.1.29",
-    "@types/uuid": "^9.0.6",
-    "babel-jest": "^29.5.0",
-    "jest": "^29.7.0",
-    "npm-install-peers": "^1.2.2",
-    "prop-types": "^15.8.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-intl": "^6.4.1",
-    "styled-components": "^6.1.0",
-    "ts-jest": "^29.1.1",
-    "typescript": "5.2.2"
-  },
-  "peerDependencies": {
-    "@strapi/strapi": "^4.14.5",
-    "react": "^17.0.0 || ^18.0.0",
-    "react-dom": "^17.0.0 || ^18.0.0",
-    "react-router-dom": "^5.3.4",
-    "styled-components": "^5.3.3 || ^6.1.0"
-  },
   "homepage": "https://github.com/Dulajdeshan/strapi-advanced-uuid",
   "readme": "https://github.com/Dulajdeshan/strapi-advanced-uuid#readme",
-  "author": {
-    "name": "Dulaj Ariyaratne",
-    "email": "dulajdeshans@gmail.com",
-    "url": "https://github.com/dulajdeshan"
+  "bugs": {
+    "url": "https://github.com/Dulajdeshan/strapi-advanced-uuid/issues",
+    "email": "dulajdeshans@gmail.com"
   },
   "repository": {
     "url": "https://github.com/Dulajdeshan/strapi-advanced-uuid",
     "type": "git",
     "directory": "."
   },
-  "bugs": {
-    "url": "https://github.com/Dulajdeshan/strapi-advanced-uuid/issues",
-    "email": "dulajdeshans@gmail.com"
+  "license": "MIT",
+  "author": {
+    "name": "Dulaj Ariyaratne",
+    "email": "dulajdeshans@gmail.com",
+    "url": "https://github.com/dulajdeshan"
+  },
+  "engines": {
+    "node": ">=18.0.0 <=20.x.x",
+    "npm": ">=6.0.0"
+  },
+  "exports": {
+    "./package.json": "./package.json",
+    "./strapi-admin": {
+      "types": "./dist/admin/src/index.d.ts",
+      "source": "./admin/src/index.ts",
+      "import": "./dist/admin/index.mjs",
+      "require": "./dist/admin/index.js",
+      "default": "./dist/admin/index.js"
+    },
+    "./strapi-server": {
+      "types": "./dist/server/src/index.d.ts",
+      "source": "./server/src/index.ts",
+      "import": "./dist/server/index.mjs",
+      "require": "./dist/server/index.js",
+      "default": "./dist/server/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "strapi-plugin build",
+    "test": "jest",
+    "test:ts:back": "run -T tsc -p server/tsconfig.json",
+    "test:ts:front": "run -T tsc -p admin/tsconfig.json",
+    "verify": "strapi-plugin verify",
+    "watch": "strapi-plugin watch",
+    "watch:link": "strapi-plugin watch:link"
+  },
+  "dependencies": {
+    "@strapi/design-system": "^2.0.0-rc.11",
+    "@strapi/icons": "^2.0.0-rc.11",
+    "react-intl": "^6.8.0",
+    "uuid": "^11.0.2"
+  },
+  "devDependencies": {
+    "@strapi/sdk-plugin": "^5.2.7",
+    "@strapi/strapi": "^5.1.0",
+    "@strapi/typescript-utils": "^5.1.0",
+    "@types/jest": "^29.5.14",
+    "@types/node": "^22.8.6",
+    "@types/react": "^18.3.11",
+    "@types/react-dom": "^18.3.0",
+    "@types/uuid": "^10.0.0",
+    "jest": "^29.7.0",
+    "prettier": "^3.3.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.27.0",
+    "styled-components": "^6.1.13",
+    "ts-jest": "^29.2.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.3"
+  },
+  "peerDependencies": {
+    "@strapi/sdk-plugin": "^5.2.7",
+    "@strapi/strapi": "^5.1.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.27.0",
+    "styled-components": "^6.1.13"
+  },
+  "strapi": {
+    "kind": "plugin",
+    "name": "strapi-advanced-uuid",
+    "displayName": "Strapi Advanced UUID",
+    "description": "UUID field type support to Strapi with customizations"
   },
   "publishConfig": {
     "access": "public"
@@ -72,14 +105,5 @@
     "branches": [
       "latest"
     ]
-  },
-  "engines": {
-    "node": ">=14.19.1 <=20.x.x"
-  },
-  "scripts": {
-    "develop": "tsc -p tsconfig.server.json -w",
-    "build": "tsc -p tsconfig.server.json",
-    "test": "jest"
-  },
-  "license": "MIT"
+  }
 }

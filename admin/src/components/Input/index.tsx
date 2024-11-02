@@ -1,25 +1,25 @@
-import { useEffect, useState, forwardRef } from "react";
-import { useIntl } from "react-intl";
-import styled from "styled-components";
-import { Refresh } from "@strapi/icons";
-import { validate } from "uuid";
-import {
-  Box,
-  Field,
-  FieldAction,
-  FieldError,
-  FieldHint,
-  FieldInput,
-  FieldLabel,
-  Stack,
-  Flex,
-} from "@strapi/design-system";
-import { generateUUID, getOptions, validateUUID } from "../../utils/helpers";
+import * as React from 'react';
 
-export const FieldActionWrapper = styled(FieldAction)`
+import { useIntl } from 'react-intl';
+import styled from 'styled-components';
+import { ArrowClockwise } from '@strapi/icons';
+import { Field, Flex, TextInput, useComposedRefs } from '@strapi/design-system';
+import { FieldValue, InputProps, useFocusInputField } from '@strapi/strapi/admin';
+import { getTranslation } from '../../utils/getTranslation';
+import { generateUUID, getOptions, isValidUUIDValue } from '../../utils/helpers';
+
+type TProps = InputProps &
+  FieldValue & {
+    labelAction?: React.ReactNode;
+    attribute?: {
+      disableAutoFill: boolean;
+      disableRegenerate: boolean;
+      uuidFormat: string;
+    };
+  };
+
+export const EndAction = styled(Field.Action)`
   svg {
-    height: 1rem;
-    width: 1rem;
     path {
       fill: ${({ theme }) => theme.colors.neutral400};
     }
@@ -32,113 +32,98 @@ export const FieldActionWrapper = styled(FieldAction)`
   }
 `;
 
-const isValidValue = (uuidFormat: string, value: string) => {
-  const isValidValue = uuidFormat
-    ? validateUUID(uuidFormat, value)
-    : validate(value);
-
-  if (value && !isValidValue) {
-    return false;
-  }
-  return true;
-};
-
-const Input = forwardRef<HTMLInputElement, any>(
+const Input = React.forwardRef<HTMLButtonElement, TProps>(
   (
     {
-      attribute,
-      description,
-      disabled,
-      error,
-      intlLabel,
+      hint,
+      disabled = false,
       labelAction,
+      label,
       name,
+      required = false,
       onChange,
-      required,
+      value,
+      error,
       placeholder,
-      value: initialValue = "",
+      attribute,
       ...props
     },
-    ref
+    forwardedRef
   ) => {
     const { formatMessage } = useIntl();
-    const [fieldError, setFieldError] = useState<string | null>(error);
+    const fieldRef = useFocusInputField<HTMLInputElement>(name);
+    const composedRefs = useComposedRefs(forwardedRef, fieldRef);
 
-    const { disableAutoFill, disableRegenerate, uuidFormat } =
-      getOptions(attribute);
+    const [fieldError, setFieldError] = React.useState<string | undefined>(error);
 
-    const getFieldError = () => {
-      return formatMessage({
-        id: "uuid.form.field.error",
-        defaultMessage: "The UUID format is invalid.",
+    const { disableAutoFill, disableRegenerate, uuidFormat } = getOptions(attribute);
+
+    const getFieldError = () =>
+      formatMessage({
+        id: 'uuid.form.field.error',
+        defaultMessage: 'The UUID format is invalid.',
       });
-    };
 
-    useEffect(() => {
-      if (!initialValue && !disableAutoFill) {
+    React.useEffect(() => {
+      if (!value && !disableAutoFill) {
         const newUUID = generateUUID(uuidFormat);
-        onChange({ target: { value: newUUID, name } });
+        onChange({ target: { value: newUUID, name } } as React.ChangeEvent<HTMLInputElement>);
       }
-    }, [initialValue, attribute]);
+    }, [value, attribute]);
 
-    useEffect(() => {
-      const isValid = isValidValue(uuidFormat, initialValue);
-      setFieldError(!isValid ? getFieldError() : null);
-    }, [initialValue]);
+    React.useEffect(() => {
+      const isValid = isValidUUIDValue(uuidFormat, value);
+      setFieldError(!isValid ? getFieldError() : undefined);
+    }, [value]);
 
     // Helper function to handle the onChange event
-    const handleChange = (e) => {
+    const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       const { value } = e.target;
 
-      const isValid = isValidValue(uuidFormat, value);
-      setFieldError(!isValid ? getFieldError() : null);
+      const isValid = isValidUUIDValue(uuidFormat, value);
+      setFieldError(!isValid ? getFieldError() : undefined);
 
       onChange(e);
     };
 
+    const handleRegenerate = () => {
+      const newUUID = generateUUID(uuidFormat);
+      onChange({ target: { value: newUUID, name } } as React.ChangeEvent<HTMLInputElement>);
+    };
+
     return (
-      <Box>
-        <Field
-          id={name}
-          name={name}
-          hint={description && formatMessage(description)}
-          required={required}
-          error={fieldError}
-        >
-          <Stack spacing={1}>
-            <Flex>
-              <FieldLabel>{formatMessage(intlLabel)}</FieldLabel>
-            </Flex>
-            <FieldInput
-              {...props}
-              ref={ref}
-              onChange={handleChange}
-              disabled={disabled || !disableAutoFill}
-              value={initialValue}
-              required={required}
-              placeholder={placeholder ? formatMessage(placeholder) : ""}
-              endAction={
-                !disableRegenerate && (
-                  <FieldActionWrapper
-                    onClick={() => {
-                      const newUUID = generateUUID(uuidFormat);
-                      onChange({ target: { value: newUUID, name } });
-                    }}
-                    label={formatMessage({
-                      id: "uuid.form.field.generate",
-                      defaultMessage: "Generate",
-                    })}
-                  >
-                    <Refresh />
-                  </FieldActionWrapper>
-                )
-              }
-            />
-            <FieldHint />
-            <FieldError />
-          </Stack>
-        </Field>
-      </Box>
+      <Field.Root name={name} id={name} error={fieldError} hint={hint} required={required}>
+        <Field.Label action={labelAction}>{label}</Field.Label>
+
+        <TextInput
+          ref={composedRefs}
+          aria-label={formatMessage({
+            id: getTranslation('form.label'),
+            defaultMessage: 'Advanced UUID',
+          })}
+          disabled={disabled || !disableAutoFill}
+          value={value}
+          placeholder={placeholder}
+          onChange={handleOnChange}
+          endAction={
+            !disableRegenerate && (
+              <EndAction
+              label={formatMessage({
+                id: 'uuid.form.field.generate',
+                defaultMessage: 'Generate',
+              })}
+              onClick={handleRegenerate}
+            >
+              <ArrowClockwise />
+            </EndAction>
+            )
+          }
+          {...props}
+        />
+
+        <Field.Hint />
+        <Field.Error />
+      </Field.Root>
     );
   }
 );

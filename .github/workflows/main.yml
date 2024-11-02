@@ -1,9 +1,9 @@
 name: Tests
 on:
   push:
-    branches: [main]
+    branches: ['*']
   pull_request:
-    branches: [main]
+    branches: ['*']
 
 jobs:
   build:
@@ -20,11 +20,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: Install dependencies
         run: yarn install
-      - name: Install peer dependencies
-        run: yarn npm-install-peers
       - name: Building package
         run: yarn build
-      - run: ls
-      - run: ls dist
       - name: Running tests
         run: yarn test

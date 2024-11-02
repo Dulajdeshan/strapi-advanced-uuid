@@ -1,8 +1,5 @@
-import { randString } from "regex-randstr";
-import { v4 } from "uuid";
-import pluginId from "../pluginId";
-
-export const getTrad = (id: string) => `${pluginId}.${id}`;
+import { v4, validate } from 'uuid';
+import { randString } from '../utils/regexToString';
 
 export const generateUUID = (format: string) => {
   try {
@@ -18,16 +15,23 @@ export const generateUUID = (format: string) => {
 
 export const validateUUID = (format: string, initialValue: string) => {
   const newFormat = `^${format}$`;
-  const regexFormat = new RegExp(newFormat, "i");
+  const regexFormat = new RegExp(newFormat, 'i');
   return regexFormat.exec(initialValue);
 };
 
 export const getOptions = (attribute: any) => {
   return {
-    disableAutoFill:
-      (attribute.options && attribute.options["disable-auto-fill"]) ?? false,
-    disableRegenerate:
-      (attribute.options && attribute.options["disable-regenerate"]) ?? false,
-    uuidFormat: attribute.options && attribute.options["uuid-format"],
+    disableAutoFill: (attribute.options && attribute.options['disable-auto-fill']) ?? false,
+    disableRegenerate: (attribute.options && attribute.options['disable-regenerate']) ?? false,
+    uuidFormat: attribute.options && attribute.options['uuid-format'],
   };
+};
+
+export const isValidUUIDValue = (uuidFormat: string, value: string) => {
+  const isValidValue = uuidFormat ? validateUUID(uuidFormat, value) : validate(value);
+
+  if (value && !isValidValue) {
+    return false;
+  }
+  return true;
 };
