@@ -4,8 +4,8 @@
   "description": "UUID field type support to Strapi with customizations",
   "keywords": [
     "strapi",
-    "strapi-plugin",
-    "custom-fields",
+    "strapi plugin",
+    "custom fields",
     "uuid",
     "regex"
   ],
