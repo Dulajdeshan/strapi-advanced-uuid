@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "types": ["jest"],
+    "baseUrl": ".",
+    "paths": {
+      "*": ["admin/*", "server/*"]
+    },
+    "module": "commonjs", // Or the module type used in both `admin` and `server`
+    "target": "esnext",    // Or the target from both `admin` and `server`
+    "esModuleInterop": true
+  },
+  "include": ["admin/**/*.ts", "server/**/*.ts", "tests/**/*.ts"]
+}

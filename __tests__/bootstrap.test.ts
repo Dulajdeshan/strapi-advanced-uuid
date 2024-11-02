@@ -1,9 +1,5 @@
-import bootstrap from "../server/bootstrap";
-import { handleYupError } from '@strapi/utils'; // Mock this function as needed
-
-jest.mock('@strapi/utils', () => ({
-  handleYupError: jest.fn(),
-}));
+import bootstrap from '../server/src/bootstrap';
+import services from '../server/src/services';
 
 describe('Strapi Lifecycle Methods for Different Models', () => {
   let strapiMock;
@@ -14,6 +10,9 @@ describe('Strapi Lifecycle Methods for Different Models', () => {
 
     // Mock the Strapi object
     strapiMock = {
+      plugin: jest.fn().mockReturnValue({
+        ...services,
+      }),
       db: {
         lifecycles: {
           subscribe: jest.fn(),
@@ -74,7 +73,10 @@ describe('Strapi Lifecycle Methods for Different Models', () => {
     lifecycleHook(event);
 
     // Assert that UUID is generated and matches the expected format
-    expect(event.params.data.uuidField).toMatch(/^[A-Za-z0-9]{5}$/);
+    expect(event.params.data).toMatchObject({
+      uuidField: expect.stringMatching(/^[A-Za-z0-9]{5}$/),
+      title: 'New Article',
+    });
   });
 
   test('beforeCreate validates SKU format for product', () => {
@@ -87,14 +89,8 @@ describe('Strapi Lifecycle Methods for Different Models', () => {
       params: { data: { sku: 'invalidsku' } }, // Doesn't match format ^[0-9a-zA-Z-]{8}$
     };
 
-    // Invoke the lifecycle hook
-    lifecycleHook(event);
-
-    // Assert that handleYupError is called due to invalid SKU format
-    expect(handleYupError).toHaveBeenCalledWith(
-      expect.objectContaining({ inner: expect.any(Array) }),
-      'You have some issues'
-    );
+    // Assert that YupValidationError is thrown
+    expect(() => lifecycleHook(event)).toThrow('You have some issues');
   });
 
   test('beforeCreate does not auto-generate UUID if disableAutoFill is true', () => {
@@ -130,6 +126,6 @@ describe('Strapi Lifecycle Methods for Different Models', () => {
     lifecycleHook(event);
 
     // Assert that userId is not generated
-    expect(event.params.data.userId).toBeUndefined();
+    expect(event.params.data).not.toHaveProperty('userId');
   });
 });

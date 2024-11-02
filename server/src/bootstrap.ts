@@ -1,5 +1,4 @@
 import type { Core } from '@strapi/strapi';
-import { errors } from '@strapi/utils';
 import { PLUGIN_ID } from '../../admin/src/pluginId';
 
 const bootstrap = ({ strapi }: { strapi: Core.Strapi }) => {
