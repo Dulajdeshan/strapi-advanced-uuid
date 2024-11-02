@@ -4,18 +4,28 @@
 
 The Strapi Advanced UUID Plugin is a custom plugin for Strapi that automatically generates a unique UUID for your content. It also allows you to generate UUID based on your regular expressions.
 
-## Installation
+## ⚠️ Compatibility with Strapi versions
+
+Starting from version 2.0.0, the Strapi Advanced UUID plugin is compatible with Strapi 5 and can't be used in Strapi 4.4+.
+
+| Plugin version | Strapi version |
+| -------------- | -------------- |
+| 2.x.x          | ≥ 5.0.0        |
+| 1.x.x          | ≥ 4.4          |
+
+## ⚙️ Installation
 
 To install the Strapi Advanced UUID Plugin, simply run one of the following command:
 
 ```
 npm install strapi-advanced-uuid
 ```
+
 ```
 yarn add strapi-advanced-uuid
 ```
 
-## Usage
+## ⚡️ Usage
 
 ### How to Setup Advanced UUID Field
 
@@ -35,6 +45,13 @@ Now You can create new records via the Admin panel, API or GraphQL, and the plug
 
 ![strapi advanced uuid](./screenshot/screenshot-4.png)
 
+## 👍 Contribute
 
-## License
-This plugin is licensed under the MIT License. See the LICENSE file for more information.
+If you want to say **Thank You** and/or support the active development of `Fiber`:
+
+1. Add a [GitHub Star](https://github.com/Dulajdeshan/strapi-advanced-uuid/stargazers) to the project.
+2. Support the project by donating a [cup of coffee](https://buymeacoff.ee/dulajdeshan).
+
+## 🧾 License
+
+This plugin is licensed under the MIT License. See the [LICENSE](./LICENSE.md) file for more information.
