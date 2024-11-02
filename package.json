@@ -16,7 +16,7 @@
     "email": "dulajdeshans@gmail.com"
   },
   "repository": {
-    "url": "https://github.com/Dulajdeshan/strapi-advanced-uuid",
+    "url": "git+https://github.com/Dulajdeshan/strapi-advanced-uuid.git",
     "type": "git",
     "directory": "."
   },
