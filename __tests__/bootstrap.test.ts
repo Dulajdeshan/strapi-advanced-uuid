@@ -65,6 +65,7 @@ describe('Strapi Lifecycle Methods for Different Models', () => {
 
     // Mock the event for creating an article
     const event = {
+      action: 'beforeCreate',
       model: strapiMock.contentTypes['api::article.article'],
       params: { data: { title: 'New Article' } }, // uuidField not provided
     };
@@ -85,6 +86,7 @@ describe('Strapi Lifecycle Methods for Different Models', () => {
 
     // Mock the event for creating a product with an invalid SKU
     const event = {
+      action: 'beforeCreate',
       model: strapiMock.contentTypes['api::product.product'],
       params: { data: { sku: 'invalidsku' } }, // Doesn't match format ^[0-9a-zA-Z-]{8}$
     };
@@ -118,6 +120,7 @@ describe('Strapi Lifecycle Methods for Different Models', () => {
 
     // Mock the event for creating a user
     const event = {
+      action: 'beforeCreate',
       model: userModel,
       params: { data: { username: 'testuser' } }, // userId not provided
     };
