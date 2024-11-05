@@ -13952,6 +13952,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"regex-randstr@npm:^0.0.6":
+  version: 0.0.6
+  resolution: "regex-randstr@npm:0.0.6"
+  checksum: 10c0/079708df7143707b786176c778e24bcec31e598586213a6a6de86cb2f2f1fb483d94e6542a87a27bbb142a01d3e6d0c94fdf857002d8fed5ab00e21c8879552c
+  languageName: node
+  linkType: hard
+
 "registry-auth-token@npm:^4.0.0":
   version: 4.2.2
   resolution: "registry-auth-token@npm:4.2.2"
@@ -14993,6 +15000,7 @@ __metadata:
     react-dom: "npm:^18.3.1"
     react-intl: "npm:^6.8.0"
     react-router-dom: "npm:^6.27.0"
+    regex-randstr: "npm:^0.0.6"
     styled-components: "npm:^6.1.13"
     ts-jest: "npm:^29.2.5"
     ts-node: "npm:^10.9.2"

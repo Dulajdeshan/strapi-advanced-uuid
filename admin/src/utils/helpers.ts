@@ -1,5 +1,5 @@
 import { v4, validate } from 'uuid';
-import { randString } from '../utils/regexToString';
+import { randString } from 'regex-randstr';
 
 export const generateUUID = (format: string) => {
   try {
