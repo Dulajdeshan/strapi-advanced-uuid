@@ -101,10 +101,5 @@
   },
   "publishConfig": {
     "access": "public"
-  },
-  "release": {
-    "branches": [
-      "latest"
-    ]
   }
 }
