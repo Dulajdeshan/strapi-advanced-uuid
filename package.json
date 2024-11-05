@@ -1,6 +1,6 @@
 {
   "name": "strapi-advanced-uuid",
-  "version": "0.0.0",
+  "version": "2.0.1",
   "description": "UUID field type support to Strapi with customizations",
   "keywords": [
     "strapi",
@@ -16,7 +16,7 @@
     "email": "dulajdeshans@gmail.com"
   },
   "repository": {
-    "url": "https://github.com/Dulajdeshan/strapi-advanced-uuid",
+    "url": "git+https://github.com/Dulajdeshan/strapi-advanced-uuid.git",
     "type": "git",
     "directory": "."
   },
@@ -63,6 +63,7 @@
     "@strapi/design-system": "^2.0.0-rc.11",
     "@strapi/icons": "^2.0.0-rc.11",
     "react-intl": "^6.8.0",
+    "regex-randstr": "^0.0.6",
     "uuid": "^11.0.2"
   },
   "devDependencies": {
@@ -100,10 +101,5 @@
   },
   "publishConfig": {
     "access": "public"
-  },
-  "release": {
-    "branches": [
-      "latest"
-    ]
   }
 }

@@ -3,7 +3,7 @@ import * as React from 'react';
 import { useIntl } from 'react-intl';
 import styled from 'styled-components';
 import { ArrowClockwise } from '@strapi/icons';
-import { Field, Flex, TextInput, useComposedRefs } from '@strapi/design-system';
+import { Field, TextInput, useComposedRefs } from '@strapi/design-system';
 import { FieldValue, InputProps, useFocusInputField } from '@strapi/strapi/admin';
 import { getTranslation } from '../../utils/getTranslation';
 import { generateUUID, getOptions, isValidUUIDValue } from '../../utils/helpers';
@@ -46,7 +46,6 @@ const Input = React.forwardRef<HTMLButtonElement, TProps>(
       error,
       placeholder,
       attribute,
-      ...props
     },
     forwardedRef
   ) => {
@@ -108,17 +107,16 @@ const Input = React.forwardRef<HTMLButtonElement, TProps>(
           endAction={
             !disableRegenerate && (
               <EndAction
-              label={formatMessage({
-                id: 'uuid.form.field.generate',
-                defaultMessage: 'Generate',
-              })}
-              onClick={handleRegenerate}
-            >
-              <ArrowClockwise />
-            </EndAction>
+                label={formatMessage({
+                  id: 'uuid.form.field.generate',
+                  defaultMessage: 'Generate',
+                })}
+                onClick={handleRegenerate}
+              >
+                <ArrowClockwise />
+              </EndAction>
             )
           }
-          {...props}
         />
 
         <Field.Hint />

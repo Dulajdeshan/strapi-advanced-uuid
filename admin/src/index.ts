@@ -1,7 +1,8 @@
 import { getTranslation } from './utils/getTranslation';
 import { PLUGIN_ID } from './pluginId';
 import { Initializer } from './components/Initializer';
-import PluginIcon from './components/PluginIcon';
+import { PluginIcon } from './components/PluginIcon';
+import { prefixPluginTranslations } from './utils/prefixPluginTranslations';
 
 export default {
   register(app: any) {
@@ -20,7 +21,7 @@ export default {
       icon: PluginIcon,
       components: {
         Input: async () =>
-          import(/* webpackChunkName: "input-uuid-component" */ './components/Input'),
+          import(/* webpackChunkName: "input-uuid-component" */ './components/Input/Input'),
       },
       options: {
         base: [
@@ -119,7 +120,7 @@ export default {
         return import(`./translations/${locale}.json`)
           .then(({ default: data }) => {
             return {
-              data: getTranslation(data),
+              data: prefixPluginTranslations(data, PLUGIN_ID),
               locale,
             };
           })
