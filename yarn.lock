@@ -4099,7 +4099,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@strapi/typescript-utils@npm:5.2.0, @strapi/typescript-utils@npm:^5.1.0":
+"@strapi/typescript-utils@npm:5.2.0":
   version: 5.2.0
   resolution: "@strapi/typescript-utils@npm:5.2.0"
   dependencies:
@@ -4110,6 +4110,20 @@ __metadata:
     prettier: "npm:3.3.3"
     typescript: "npm:5.3.2"
   checksum: 10c0/3f2c519c17ebd036aadf0ba00cbacc86b1444262fd27a30343f42f0c70ae04ad331a83c2c8322346a47d24514974f507264cd584bc00fd1607b3b6ceac5aab75
+  languageName: node
+  linkType: hard
+
+"@strapi/typescript-utils@npm:^5.1.0":
+  version: 5.4.0
+  resolution: "@strapi/typescript-utils@npm:5.4.0"
+  dependencies:
+    chalk: "npm:4.1.2"
+    cli-table3: "npm:0.6.5"
+    fs-extra: "npm:11.2.0"
+    lodash: "npm:4.17.21"
+    prettier: "npm:3.3.3"
+    typescript: "npm:5.3.2"
+  checksum: 10c0/b9d1fd7e6428dcc600b076570514383a44d8b45f7e1dd6e70ebdf9a51ae313c3e3ce853d51b1e4dd7c8b3559eb51705df899e8cefae1799df1b871b05f8bdbe6
   languageName: node
   linkType: hard
 
