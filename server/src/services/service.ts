@@ -1,6 +1,6 @@
 import type { Core } from '@strapi/strapi';
 import { errors } from '@strapi/utils';
-import { generateUUID, validateUUID } from '../../../admin/src/utils/helpers';
+import { generateUUID, isValidUUIDValue } from '../../../admin/src/utils/helpers';
 
 const { YupValidationError } = errors;
 
@@ -37,7 +37,7 @@ const service = ({ strapi }: { strapi: Core.Strapi }) => ({
         // - If disableAutoFill is not enabled
         // - If there is an initial value
         if (!disableAutoFill || initialValue) {
-          if (!validateUUID(uuidFormat, event.params.data[attribute])) {
+          if (!isValidUUIDValue(uuidFormat, event.params.data[attribute])) {
             errorMessages.inner.push({
               name: 'ValidationError', // Always set to ValidationError
               path: attribute, // Name of field we want to show input validation on
