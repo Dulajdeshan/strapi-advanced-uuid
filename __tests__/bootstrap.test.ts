@@ -1,3 +1,4 @@
+import { describe, beforeEach, test, expect, jest } from '@jest/globals';
 import bootstrap from '../server/src/bootstrap';
 import services from '../server/src/services';
 
@@ -59,7 +60,7 @@ describe('Strapi Lifecycle Methods for Different Models', () => {
     );
   });
 
-  test('beforeCreate generates UUID for article if not provided', () => {
+  test('beforeCreate generates UUID for article if not provided', async () => {
     // Extract the beforeCreate hook
     const lifecycleHook = strapiMock.db.lifecycles.subscribe.mock.calls[0][0].beforeCreate;
 
@@ -71,7 +72,7 @@ describe('Strapi Lifecycle Methods for Different Models', () => {
     };
 
     // Invoke the lifecycle hook
-    lifecycleHook(event);
+    await lifecycleHook(event);
 
     // Assert that UUID is generated and matches the expected format
     expect(event.params.data).toMatchObject({
@@ -80,7 +81,7 @@ describe('Strapi Lifecycle Methods for Different Models', () => {
     });
   });
 
-  test('beforeCreate validates SKU format for product', () => {
+  test('beforeCreate validates SKU format for product', async () => {
     // Extract the beforeCreate hook
     const lifecycleHook = strapiMock.db.lifecycles.subscribe.mock.calls[0][0].beforeCreate;
 
@@ -92,10 +93,10 @@ describe('Strapi Lifecycle Methods for Different Models', () => {
     };
 
     // Assert that YupValidationError is thrown
-    expect(() => lifecycleHook(event)).toThrow('You have some issues');
+    await expect(lifecycleHook(event)).rejects.toThrow('You have some issues');
   });
 
-  test('beforeCreate does not auto-generate UUID if disableAutoFill is true', () => {
+  test('beforeCreate does not auto-generate UUID if disableAutoFill is true', async () => {
     // Mock model with disableAutoFill set to true
     const userModel = {
       attributes: {
@@ -126,7 +127,7 @@ describe('Strapi Lifecycle Methods for Different Models', () => {
     };
 
     // Invoke the lifecycle hook
-    lifecycleHook(event);
+    await lifecycleHook(event);
 
     // Assert that userId is not generated
     expect(event.params.data).not.toHaveProperty('userId');

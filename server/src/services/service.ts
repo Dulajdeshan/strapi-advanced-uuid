@@ -25,9 +25,6 @@ const service = ({ strapi }: { strapi: Core.Strapi }) => ({
     for (const attribute of Object.keys(event.model.attributes)) {
       const attributeValue = event.model.attributes[attribute];
       if (isAdvancedUUIDField(attributeValue)) {
-
-        // console.log('event', JSON.stringify(event, null, 2));
-
         // Get the initial value of the attribute
         const initialValue = event.params.data[attribute];
 
@@ -65,7 +62,6 @@ const service = ({ strapi }: { strapi: Core.Strapi }) => ({
           if (document) {
             event.params.data[attribute] = document[attribute];
           } else {
-
             const locales = await strapi.db.queryBuilder('plugin::i18n.locale').select('*').execute<[{ code: string }] | null>({ mapResults: false })
             
             // If we have locales, lets loop through them and find documents for each locale until we find one with a value for the attribute
@@ -83,7 +79,6 @@ const service = ({ strapi }: { strapi: Core.Strapi }) => ({
                   if (document) {
                     const existingUUID = document[attribute];
                     if (existingUUID) {
-                      console.log('existingUUID', existingUUID);
                       event.params.data[attribute] = existingUUID;
                     }
                     break;
