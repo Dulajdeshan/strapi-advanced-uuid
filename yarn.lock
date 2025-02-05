@@ -3784,7 +3784,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@strapi/icons@npm:2.0.0-rc.12, @strapi/icons@npm:^2.0.0-rc.11":
+"@strapi/icons@npm:2.0.0-rc.12":
   version: 2.0.0-rc.12
   resolution: "@strapi/icons@npm:2.0.0-rc.12"
   peerDependencies:
@@ -3792,6 +3792,17 @@ __metadata:
     react-dom: ^17.0.0 || ^18.0.0
     styled-components: ^6.0.0
   checksum: 10c0/636c3bc5ccff38bdec375ad767d0d461b339453f60c23b4eb10f4ee1ac67381337d5217f8bc55ce986474ab886eae6e1e8b50072a9f8afc580fcd99b16a30c2d
+  languageName: node
+  linkType: hard
+
+"@strapi/icons@npm:^2.0.0-rc.11":
+  version: 2.0.0-rc.16
+  resolution: "@strapi/icons@npm:2.0.0-rc.16"
+  peerDependencies:
+    react: ^17.0.0 || ^18.0.0
+    react-dom: ^17.0.0 || ^18.0.0
+    styled-components: ^6.0.0
+  checksum: 10c0/122ec963835f0ef8b1116ce45b16579a1bb3b1ae7ee599eb8f31e022abd1cdbdda7b7389c9b3149d8a0235b570f0e73dcb42462f335d7a6845f9ee7afb942b7f
   languageName: node
   linkType: hard
 
@@ -15810,11 +15821,11 @@ __metadata:
 
 "typescript@patch:typescript@npm%3A^5.6.3#optional!builtin<compat/typescript>":
   version: 5.6.3
-  resolution: "typescript@patch:typescript@npm%3A5.6.3#optional!builtin<compat/typescript>::version=5.6.3&hash=5adc0c"
+  resolution: "typescript@patch:typescript@npm%3A5.6.3#optional!builtin<compat/typescript>::version=5.6.3&hash=8c6c40"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 10c0/ac8307bb06bbfd08ae7137da740769b7d8c3ee5943188743bb622c621f8ad61d244767480f90fbd840277fbf152d8932aa20c33f867dea1bb5e79b187ca1a92f
+  checksum: 10c0/7c9d2e07c81226d60435939618c91ec2ff0b75fbfa106eec3430f0fcf93a584bc6c73176676f532d78c3594fe28a54b36eb40b3d75593071a7ec91301533ace7
   languageName: node
   linkType: hard
 
