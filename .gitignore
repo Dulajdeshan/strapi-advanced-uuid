@@ -114,7 +114,6 @@ logs
 results
 node_modules
 .node_history
-package-lock.json
 
 
 ############################
@@ -130,7 +129,6 @@ package-lock.json
 !.yarn/versions
 .pnp.*
 yarn-error.log
-yarn.lock
 
 
 ############################

@@ -7,5 +7,9 @@
   "form.field.disableRegenerate": "Disable regenerate",
   "form.field.disableRegenerate.description": "Disable regeneration in the UI",
   "form.field.disableAutoFill": "Disable Auto Fill",
-  "form.field.disableAutoFill.description": "Disable initial auto fill of the UUID"
+  "form.field.disableAutoFill.description": "Disable initial auto fill of the UUID",
+  "form.field.allowRegenerateOnCreate": "Allow regenerate on create",
+  "form.field.allowRegenerateOnCreate.description": "Allow regeneration on create",
+  "form.field.allowEditableOnCreate": "Allow editable on create",
+  "form.field.allowEditableOnCreate.description": "Allow editing on create"
 }

@@ -24,6 +24,8 @@ export const getOptions = (attribute: any) => {
     disableAutoFill: (attribute.options && attribute.options['disable-auto-fill']) ?? false,
     disableRegenerate: (attribute.options && attribute.options['disable-regenerate']) ?? false,
     uuidFormat: attribute.options && attribute.options['uuid-format'],
+    allowRegenerateOnCreate: (attribute.options && attribute.options['allow-regenerate-on-create']) ?? false,
+    allowEditableOnCreate: (attribute.options && attribute.options['allow-editable-on-create']) ?? false,
   };
 };
 

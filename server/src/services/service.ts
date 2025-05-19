@@ -36,6 +36,18 @@ const service = ({ strapi }: { strapi: Core.Strapi }) => ({
         // Get the disable-auto-fill option, if it is set
         const disableAutoFill = options ? options['disable-auto-fill'] : false;
 
+        // Get the disable-regenerate option, if it is set
+        const disableRegenerate = options ? options['disable-regenerate'] : false;
+
+        // Philosophy: With the correct configuration, the UUID for a resource should be completely constant and never change.
+        // We should be able to use a UUID to point to a specific resource, or more specifically, a group of resources.
+        // Strapis documentId does exactly this, but is not customizable. 
+        // They can also change over time due to database migrations that strapi runs in the background.
+        // We effectively want to replicate the behavior of documentId but make it customizable and predictable.
+        // Once generated, The UUID should be immutable unless it becomes invalid.
+        // It should be the same across all locales (if localized is disabled) and across both published and draft versions of a resource.
+        // It should not be able to be replaced with another value once generated unless the regex was changed.
+
         // Check if this is updating from another document and we were given a documentId and the UUID was not included in the data to update:
         if ((!initialValue || initialValue == '') && event.action == 'beforeUpdate' && event.params.where.documentId) {
           try {
@@ -54,10 +66,18 @@ const service = ({ strapi }: { strapi: Core.Strapi }) => ({
 
         if (event.action == 'beforeCreate' && !(attributeValue as any).pluginOptions?.i18n?.localized && event.params.data.documentId) {
           // Check the default locale entry first
-          const document = await strapi.documents(event.model.uid as UID.ContentType).findOne({
+          let document = await strapi.documents(event.model.uid as UID.ContentType).findOne({
             documentId: event.params.data.documentId,
             status: 'published'
           });
+
+          // If no document was found, also check for a draft document
+          if (!document) {
+            document = await strapi.documents(event.model.uid as UID.ContentType).findOne({
+              documentId: event.params.data.documentId,
+              status: 'draft'
+            });
+          }
 
           if (document) {
             event.params.data[attribute] = document[attribute];
@@ -71,11 +91,21 @@ const service = ({ strapi }: { strapi: Core.Strapi }) => ({
                 if (locale.code == event.params.data.locale) continue;
 
                 try {
-                  const document = await strapi.documents(event.model.uid as UID.ContentType).findOne({
+                  let document = await strapi.documents(event.model.uid as UID.ContentType).findOne({
                     documentId: event.params.data.documentId,
                     locale: locale.code,
                     status: 'published'
                   });
+
+                  // If no document was found, also check for a draft document
+                  if (!document) {
+                    document = await strapi.documents(event.model.uid as UID.ContentType).findOne({
+                      documentId: event.params.data.documentId,
+                      locale: locale.code,
+                      status: 'draft'
+                    });
+                  }
+
                   if (document) {
                     const existingUUID = document[attribute];
                     if (existingUUID) {
@@ -94,6 +124,31 @@ const service = ({ strapi }: { strapi: Core.Strapi }) => ({
         // If there is no initial value and disableAutoFill is not enabled, generate a new UUID
         if (!event.params.data[attribute] && !disableAutoFill) {
           event.params.data[attribute] = generateUUID(uuidFormat);
+        }
+
+        // If there is an initial value and disableRegenerate is enabled,
+        // we don't want to change the UUID from the current value, if the current value is valid
+        if (event.action == 'beforeUpdate' && event.params.data.documentId && disableRegenerate) {
+          // Check the default locale entry first
+          let document = await strapi.documents(event.model.uid as UID.ContentType).findOne({
+            documentId: event.params.data.documentId,
+            status: 'published'
+          });
+
+          // If no document was found, also check for a draft document
+          if (!document) {
+            document = await strapi.documents(event.model.uid as UID.ContentType).findOne({
+              documentId: event.params.data.documentId,
+              status: 'draft'
+            });
+          }
+
+          if (document) {
+            const existingUUID = document[attribute];
+            if (existingUUID && isValidUUIDValue(uuidFormat, existingUUID)) {
+              event.params.data[attribute] = existingUUID;
+            }
+          }
         }
 
         // Validation happens on following conditions:
