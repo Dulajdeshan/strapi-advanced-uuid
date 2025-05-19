@@ -49,15 +49,12 @@ const Input = React.forwardRef<HTMLButtonElement, TProps>(
       placeholder,
       attribute,
       initialValue,
-      ...props
     },
     forwardedRef
   ) => {
     const { formatMessage } = useIntl();
     const fieldRef = useFocusInputField<HTMLInputElement>(name);
     const composedRefs = useComposedRefs(forwardedRef, fieldRef);
-    // console.log('props', props);
-    console.log('initialValue', initialValue);
     
     // Track if we've generated a temporary UUID
     const generatedTempValue = React.useRef(false);
@@ -87,8 +84,6 @@ const Input = React.forwardRef<HTMLButtonElement, TProps>(
     // Handle initial value generation
     // This is a workaround to handle the case where the field is not populated with a value when the component is mounted
     React.useEffect(() => {
-      console.log('value', value);
-      console.log('initialValue', initialValue);
       
       // First case: No value and auto-fill enabled, generate a temporary value
       if (!value && !disableAutoFill && !generatedTempValue.current) {
@@ -101,7 +96,6 @@ const Input = React.forwardRef<HTMLButtonElement, TProps>(
       // Second case: initialValue has arrived and is different from what we had before
       // and we previously generated a temporary value
       if (initialValue && initialValue !== prevInitialValue.current && generatedTempValue.current) {
-        console.log('Real initialValue arrived, reverting to it');
         onChange({ target: { value: initialValue, name } } as React.ChangeEvent<HTMLInputElement>);
         generatedTempValue.current = false; // Reset the flag since we're now using the real value
         setIsCreateMode(false); // We now have an initial value, so we're no longer in create mode
