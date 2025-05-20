@@ -68,6 +68,9 @@ const Input = React.forwardRef<HTMLButtonElement, TProps>(
     const [fieldError, setFieldError] = React.useState<string | undefined>(error);
 
     const { disableAutoFill, disableRegenerate, uuidFormat, allowRegenerateOnCreate = false, allowEditableOnCreate = false } = getOptions(attribute);
+
+    // Generate a temporary UUID if the field is empty
+    const tempUUID = React.useRef(generateUUID(uuidFormat));
     
     // Determine if regeneration should be enabled based on mode and settings
     const effectiveDisableRegenerate = isCreateMode && allowRegenerateOnCreate ? false : disableRegenerate;
@@ -84,18 +87,20 @@ const Input = React.forwardRef<HTMLButtonElement, TProps>(
     // Handle initial value generation
     // This is a workaround to handle the case where the field is not populated with a value when the component is mounted
     React.useEffect(() => {
-      
-      // First case: No value and auto-fill enabled, generate a temporary value
-      if (!value && !disableAutoFill && !generatedTempValue.current) {
-        console.log('Generating temporary UUID');
-        const newUUID = generateUUID(uuidFormat);
-        onChange({ target: { value: newUUID, name } } as React.ChangeEvent<HTMLInputElement>);
-        generatedTempValue.current = true;
-      }
-      
-      // Second case: initialValue has arrived and is different from what we had before
-      // and we previously generated a temporary value
-      if (initialValue && initialValue !== prevInitialValue.current && generatedTempValue.current) {
+      // Use setTimeout to allow any pending initialValue changes to process first
+      setTimeout(() => {
+        // Double-check if we still need to generate a value
+        if (!value && !initialValue && !disableAutoFill && !generatedTempValue.current) {
+          generatedTempValue.current = true;
+          onChange({ target: { value: tempUUID.current, name } } as React.ChangeEvent<HTMLInputElement>);
+        }
+      }, 250);
+    }, [value]);
+    
+    React.useEffect(() => {
+      if (initialValue && initialValue !== prevInitialValue.current) {
+        // set the tempUUID to the initialValue so even if the timeout still runs, it will use the initialValue
+        tempUUID.current = initialValue;
         onChange({ target: { value: initialValue, name } } as React.ChangeEvent<HTMLInputElement>);
         generatedTempValue.current = false; // Reset the flag since we're now using the real value
         setIsCreateMode(false); // We now have an initial value, so we're no longer in create mode
