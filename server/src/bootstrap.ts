@@ -24,7 +24,6 @@ const bootstrap = ({ strapi }: { strapi: Core.Strapi }) => {
 
   // Get the models to subscribe
   const modelsToSubscribe = Object.keys(models);
-
   if (strapi.db) {
     strapi.db.lifecycles.subscribe({
       models: modelsToSubscribe,
