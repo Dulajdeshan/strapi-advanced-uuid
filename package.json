@@ -1,6 +1,6 @@
 {
   "name": "strapi-advanced-uuid",
-  "version": "2.0.1",
+  "version": "2.2.1",
   "description": "UUID field type support to Strapi with customizations",
   "keywords": [
     "strapi",
@@ -60,16 +60,16 @@
     "watch:link": "strapi-plugin watch:link"
   },
   "dependencies": {
-    "@strapi/design-system": "^2.0.0-rc.11",
-    "@strapi/icons": "^2.0.0-rc.11",
+    "@strapi/design-system": "^2.0.0-rc.23",
+    "@strapi/icons": "^2.0.0-rc.23",
     "react-intl": "^6.8.0",
     "regex-randstr": "^0.0.6",
     "uuid": "^11.0.2"
   },
   "devDependencies": {
-    "@strapi/sdk-plugin": "^5.2.7",
-    "@strapi/strapi": "^5.1.0",
-    "@strapi/typescript-utils": "^5.1.0",
+    "@strapi/sdk-plugin": "^5.3.2",
+    "@strapi/strapi": "^5.13.0",
+    "@strapi/typescript-utils": "^5.13.0",
     "@types/jest": "^29.5.14",
     "@types/node": "^22.8.6",
     "@types/react": "^18.3.11",
@@ -86,8 +86,8 @@
     "typescript": "^5.6.3"
   },
   "peerDependencies": {
-    "@strapi/sdk-plugin": "^5.2.7",
-    "@strapi/strapi": "^5.1.0",
+    "@strapi/sdk-plugin": "^5.3.2",
+    "@strapi/strapi": "^5.13.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.27.0",

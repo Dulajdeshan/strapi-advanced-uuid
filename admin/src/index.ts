@@ -64,6 +64,30 @@ export default {
                   defaultMessage: 'Disable regeneration in the UI',
                 },
               },
+              {
+                intlLabel: {
+                  id: getTranslation('form.field.allowRegenerateOnCreate'),
+                  defaultMessage: 'Allow Regenerate On Create',
+                },
+                name: 'options.allow-regenerate-on-create',
+                type: 'checkbox',
+                description: {
+                  id: 'form.field.allowRegenerateOnCreate.description',
+                  defaultMessage: 'Allow regeneration on create',
+                },
+              },
+              {
+                intlLabel: {
+                  id: getTranslation('form.field.allowEditableOnCreate'),
+                  defaultMessage: 'Allow Editable On Create',
+                },
+                name: 'options.allow-editable-on-create',
+                type: 'checkbox',
+                description: {
+                  id: 'form.field.allowEditableOnCreate.description',
+                  defaultMessage: 'Allow editing on create',
+                },
+              },
             ],
           },
         ],

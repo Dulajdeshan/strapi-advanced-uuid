@@ -24,16 +24,15 @@ const bootstrap = ({ strapi }: { strapi: Core.Strapi }) => {
 
   // Get the models to subscribe
   const modelsToSubscribe = Object.keys(models);
-
   if (strapi.db) {
     strapi.db.lifecycles.subscribe({
       models: modelsToSubscribe,
-      beforeCreate(event) {
-        strapi.plugin(PLUGIN_ID).service('service').handleCRUDOperation(event);
+      async beforeCreate(event) {
+        await strapi.plugin(PLUGIN_ID).service('service').handleCRUDOperation(event);
       },
-      beforeUpdate(event) {
-        strapi.plugin(PLUGIN_ID).service('service').handleCRUDOperation(event);
-      },
+      async beforeUpdate(event) {
+        await strapi.plugin(PLUGIN_ID).service('service').handleCRUDOperation(event);
+      }
     });
   }
 };
