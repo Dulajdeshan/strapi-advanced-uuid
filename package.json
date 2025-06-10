@@ -72,12 +72,12 @@
     "@strapi/typescript-utils": "^5.1.0",
     "@types/jest": "^29.5.14",
     "@types/node": "^22.8.6",
-    "@types/react": "^18.3.11",
+    "@types/react": "^19.1.7",
     "@types/react-dom": "^18.3.0",
     "@types/uuid": "^10.0.0",
     "jest": "^29.7.0",
     "prettier": "^3.3.3",
-    "react": "^18.3.1",
+    "react": "^19.1.0",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.27.0",
     "styled-components": "^6.1.13",
@@ -88,7 +88,7 @@
   "peerDependencies": {
     "@strapi/sdk-plugin": "^5.2.7",
     "@strapi/strapi": "^5.1.0",
-    "react": "^18.3.1",
+    "react": "^19.1.0",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.27.0",
     "styled-components": "^6.1.13"
