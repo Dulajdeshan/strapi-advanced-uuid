@@ -3698,8 +3698,8 @@ __metadata:
   linkType: hard
 
 "@strapi/design-system@npm:^2.0.0-rc.11":
-  version: 2.0.0-rc.16
-  resolution: "@strapi/design-system@npm:2.0.0-rc.16"
+  version: 2.0.0-rc.25
+  resolution: "@strapi/design-system@npm:2.0.0-rc.25"
   dependencies:
     "@codemirror/lang-json": "npm:6.0.1"
     "@floating-ui/react-dom": "npm:2.1.0"
@@ -3722,7 +3722,7 @@ __metadata:
     "@radix-ui/react-tabs": "npm:1.0.4"
     "@radix-ui/react-tooltip": "npm:1.0.7"
     "@radix-ui/react-use-callback-ref": "npm:1.0.1"
-    "@strapi/ui-primitives": "npm:2.0.0-rc.16"
+    "@strapi/ui-primitives": "npm:2.0.0-rc.25"
     "@uiw/react-codemirror": "npm:4.22.2"
     lodash: "npm:4.17.21"
     react-remove-scroll: "npm:2.5.10"
@@ -3731,7 +3731,7 @@ __metadata:
     react: ^17.0.0 || ^18.0.0
     react-dom: ^17.0.0 || ^18.0.0
     styled-components: ^6.0.0
-  checksum: 10c0/d6f0d1de023986c7e6d3c6a7dd6398c67622e265e2e4a7ea2315ce729e046b8ef4bdee806105fb6926dda6b2c5b3e562dbd8290668cc1c029026ce3988d41dc2
+  checksum: 10c0/9e62017b133158148311799a146879e224c1522e08d2daf816a4af5f3a35a93c8be8c65e80d86187c9554ea9e76837d2ecc770f990ae774555f4c936484bc688
   languageName: node
   linkType: hard
 
@@ -4126,9 +4126,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@strapi/ui-primitives@npm:2.0.0-rc.16":
-  version: 2.0.0-rc.16
-  resolution: "@strapi/ui-primitives@npm:2.0.0-rc.16"
+"@strapi/ui-primitives@npm:2.0.0-rc.25":
+  version: 2.0.0-rc.25
+  resolution: "@strapi/ui-primitives@npm:2.0.0-rc.25"
   dependencies:
     "@radix-ui/number": "npm:1.0.1"
     "@radix-ui/primitive": "npm:1.0.1"
@@ -4153,7 +4153,7 @@ __metadata:
   peerDependencies:
     react: ^17.0.0 || ^18.0.0
     react-dom: ^17.0.0 || ^18.0.0
-  checksum: 10c0/4cbae496637658dfa42120480996c8866ee9a319620edebdfce2d506d9e752f9caa5b73def49199db68228dee20e261f8d6797d255b39a3cf55aa2fdabd2f637
+  checksum: 10c0/fbe9f4e5de4206677f824b3df077d3c7b694894784234031730c86fd39f94fa040351b5c7057522f557a630bd15f6961e179e4071301d33eebd15df9152ea5e0
   languageName: node
   linkType: hard
 
