@@ -1,12 +1,12 @@
 import * as React from 'react';
 
 import { useIntl } from 'react-intl';
-import styled from 'styled-components';
 import { ArrowClockwise } from '@strapi/icons';
 import { Field, TextInput, useComposedRefs } from '@strapi/design-system';
 import { FieldValue, InputProps, useFocusInputField } from '@strapi/strapi/admin';
 import { getTranslation } from '../../utils/getTranslation';
 import { generateUUID, getOptions, isValidUUIDValue } from '../../utils/helpers';
+import { IconButton } from '@strapi/design-system';
 
 type TProps = InputProps &
   FieldValue & {
@@ -17,20 +17,6 @@ type TProps = InputProps &
       uuidFormat: string;
     };
   };
-
-export const EndAction = styled(Field.Action)`
-  svg {
-    path {
-      fill: ${({ theme }) => theme.colors.neutral400};
-    }
-  }
-
-  svg:hover {
-    path {
-      fill: ${({ theme }) => theme.colors.primary600};
-    }
-  }
-`;
 
 const Input = React.forwardRef<HTMLButtonElement, TProps>(
   (
@@ -106,15 +92,17 @@ const Input = React.forwardRef<HTMLButtonElement, TProps>(
           onChange={handleOnChange}
           endAction={
             !disableRegenerate && (
-              <EndAction
+              <Field.Action
                 label={formatMessage({
                   id: 'uuid.form.field.generate',
                   defaultMessage: 'Generate',
                 })}
                 onClick={handleRegenerate}
               >
-                <ArrowClockwise />
-              </EndAction>
+                <IconButton variant="ghost">
+                  <ArrowClockwise fill="neutral400" />
+                </IconButton>
+              </Field.Action>
             )
           }
         />
