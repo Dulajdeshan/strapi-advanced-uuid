@@ -3020,10 +3020,22 @@
     typedoc-github-wiki-theme "1.1.0"
     typedoc-plugin-markdown "3.17.1"
 
-"@strapi/typescript-utils@5.15.1", "@strapi/typescript-utils@^5.15.1":
+"@strapi/typescript-utils@5.15.1":
   version "5.15.1"
   resolved "https://registry.yarnpkg.com/@strapi/typescript-utils/-/typescript-utils-5.15.1.tgz#bc7e808998c4633dc1d045e6085c80f82e1796e9"
   integrity sha512-KqoEMVRHG8Co7GavGJoi2bf6GCc/iCnz1lM2ve/NeBInal3AGeGxHGqBxdVq+Nm7hya1MnEfG64IJ0SflZ2mbA==
+  dependencies:
+    chalk "4.1.2"
+    cli-table3 "0.6.5"
+    fs-extra "11.2.0"
+    lodash "4.17.21"
+    prettier "3.3.3"
+    typescript "5.4.4"
+
+"@strapi/typescript-utils@^5.15.1":
+  version "5.20.0"
+  resolved "https://registry.yarnpkg.com/@strapi/typescript-utils/-/typescript-utils-5.20.0.tgz#1d89eae64bde89e6d8b8100193c8ec6d2c333f1b"
+  integrity sha512-A6IDhEdLvbhWOKCOQr8jPoYBB+hrSnt3RKn/P7S5jre8m/8IsHVzkKXg74F2QNemDImda4nJMo8AW7qMULPpzg==
   dependencies:
     chalk "4.1.2"
     cli-table3 "0.6.5"
